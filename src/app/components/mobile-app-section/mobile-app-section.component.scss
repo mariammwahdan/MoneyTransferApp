@@ -1,0 +1,44 @@
+.bgcolor {
+  background-color: #f3e9eb;
+}
+.listpart {
+  font-family: "Inter", "sans-serif";
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.listpart h6 {
+  color: #871e35;
+  font-size: 18px;
+  font-family: "Inter", "sans-serif";
+  font-weight: 600;
+}
+.listpart .downloadText {
+  font-weight: 600;
+  font-size: 35px;
+}
+.listpart span {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.listpart li {
+  padding: 0 0 1px 0;
+  margin-top: 20px;
+}
+.listpart .arrow {
+  color: #871e35;
+  font-weight: bold;
+  border: 3px solid #871e35;
+  border-radius: 13px;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+}
+.listpart li span {
+  font-size: 16px;
+  font-weight: 600;
+  padding-left: 8px;
+}
+.listpart li img {
+  margin-right: 10px;
+}
