@@ -1,53 +1,55 @@
 .list-part {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: 560px;
-}
+  margin: 30px 30px 30px 0;
+  padding-right: 30px;
+  padding-left: 20px;
 
-.list-part h6 {
-  font-size: 18px;
-  font-weight: 600;
-}
+  h6 {
+    font-size: 18px;
+    font-weight: 600;
+  }
 
-.list-part .downloadText {
-  font-weight: 600;
-  font-size: 40px;
-}
+  .downloadText {
+    font-weight: 600;
+    font-size: 40px;
+  }
 
-.list-part span {
-  font-weight: 500;
-  font-size: 16px;
-}
+  span {
+    font-weight: 500;
+    font-size: 16px;
+  }
 
-.list-part li {
-  padding: 0 0 1px 0;
-  margin-top: 20px;
-  display: flex;
-  gap: 12px;
+  li {
+    padding: 0 0 1px 0;
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
 
-}
+    span {
+      font-size: 16px;
+      font-weight: 600;
+      padding-left: 8px;
+    }
 
-.list-part .arrow {
-  border-radius: 13px;
-  width: 26px;
-  height: 26px;
-  padding: 4px;
+  }
 
-}
+  .arrow {
+    border-radius: 13px;
+    width: 26px;
+    height: 26px;
+    padding: 4px;
 
-.list-part li span {
-  font-size: 16px;
-  font-weight: 600;
-  padding-left: 8px;
-}
+  }
 
-.app-links {
-  height: 51.66px;
-  width: 316.65px;
-  display: flex;
-  gap: 17.61px;
-}
+  .app-links {
+    height: 35px;
+    display: flex;
+    gap: 17.61px;
 
-.list-part .app-links img {
-  height: 100%;
+
+    img {
+      margin-right: 10px;
+      width: 100px;
+      height: 100%;
+    }
+  }
 }
