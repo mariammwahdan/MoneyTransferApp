@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { MobileAppSectionComponent } from './components/mobile-app-section/mobile-app-section.component';
 import { HeaderComponent } from './components/header/header.component';
+import { GettingStartedComponent } from './components/getting-started/getting-started.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
     MainFooterComponent,
     MobileAppSectionComponent,
     HeaderComponent,
+    GettingStartedComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
