@@ -45,3 +45,12 @@ body {
 .cursor-pointer{
     cursor: pointer;
 }
+
+.card{
+    background-color: white;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px 1px rgba(128, 128, 128, 0.111);
+    padding: 20px 20px;
+    width: fit-content;
+}
