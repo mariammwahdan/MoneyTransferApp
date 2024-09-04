@@ -1,10 +1,15 @@
-<button class="btn btn-{{ background }} width-{{width}} px-4 py-3">
-    {{label}}
+<button
+  class="btn px-4 py-3"
+  [class.btn-large]="largeBtn"
+  [class.btn-dark-color]="dark"
+  [class.btn-light-color]="light"
+  [class.btn-outline]="outline"
+>
+  {{ label }}
 </button>
-
 
 <!-- ex how to use 
 
-    <app-btn label="Click Me"  background= "dark-color" width= "full"></app-btn>
+    <app-btn [outline]="true"  [largeBtn]="true" label="Click Me"></app-btn>
 
 -->
