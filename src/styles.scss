@@ -1,17 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-$primary-color: #F3E9EB;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+$primary-color: #f3e9eb;
 $main-dark-color: #521220;
 $main-light-color: #871E35;
 $gray-color: #3C3A37;
 $gray-light: #E3E2E2;
 
+
 body {
-    font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .bg-main {
-    background-color: $main-dark-color;
+  background-color: $main-dark-color;
 }
 
 .bg-main-light {
@@ -20,8 +21,9 @@ body {
 }
 
 .bg-pink {
-    background-color: $primary-color;
+  background-color: $primary-color;
 }
+
 
 .text-main-light,
 .active {
@@ -29,11 +31,11 @@ body {
 }
 
 .text-pink {
-    color: $primary-color;
+  color: $primary-color;
 }
 
 .border-main-light {
-    border: 2px solid $main-light-color;
+  border: 2px solid $main-light-color;
 }
 
 .border-gray {
@@ -41,7 +43,7 @@ body {
 }
 
 .sub-header-font {
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .text-gray {
@@ -55,3 +57,8 @@ body {
 .bg-gray-light {
     background-color: $gray-light;
 }
+
+.text-light-main-color {
+  color: $main-light-color;
+}
+
