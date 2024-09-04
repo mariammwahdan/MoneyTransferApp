@@ -11,6 +11,8 @@ import { NgClass } from '@angular/common';
   styleUrl: './auth-navbar.component.scss'
 })
 export class AuthNavbarComponent {
+
+
   user = {
     name: 'Jonathon Smith',
   }
