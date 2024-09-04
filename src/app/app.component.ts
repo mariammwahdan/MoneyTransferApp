@@ -4,10 +4,11 @@ import { MainFooterComponent } from './components/main-footer/main-footer.compon
 import { MobileAppSectionComponent } from './components/mobile-app-section/mobile-app-section.component';
 import { BtnComponent } from "./shared/btn/btn.component";
 import { Error404Component } from "./components/error-404/error-404.component";
+import { TopSectionComponent } from "./shared/top-section/top-section.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MainFooterComponent, MobileAppSectionComponent, BtnComponent, Error404Component],
+  imports: [RouterOutlet, MainFooterComponent, MobileAppSectionComponent, BtnComponent, Error404Component, TopSectionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
