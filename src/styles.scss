@@ -3,8 +3,8 @@
 $primary-color: #F3E9EB;
 $main-dark-color: #521220;
 $main-light-color: #871E35;
-
 $gray-color: #3C3A37;
+$gray-light: #E3E2E2;
 
 body {
     font-family: "Inter", sans-serif;
@@ -14,12 +14,18 @@ body {
     background-color: $main-dark-color;
 }
 
+.bg-main-light {
+    background-color: $main-light-color;
+
+}
+
 .bg-pink {
     background-color: $primary-color;
 }
 
-.text-main-light {
-    color: $main-light-color;
+.text-main-light,
+.active {
+    color: $main-light-color !important;
 }
 
 .text-pink {
@@ -30,10 +36,22 @@ body {
     border: 2px solid $main-light-color;
 }
 
+.border-gray {
+    border: 2px solid $gray-color;
+}
+
 .sub-header-font {
     font-family: "Poppins", sans-serif;
 }
 
 .text-gray {
     color: $gray-color;
+}
+
+.bg-gray {
+    background-color: $gray-color;
+}
+
+.bg-gray-light {
+    background-color: $gray-light;
 }
