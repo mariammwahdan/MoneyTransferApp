@@ -1,0 +1,31 @@
+.profile-container {
+  display: flex;
+  border: 1px solid #f3e9eb;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding-left: 0;
+  height: 718px;
+  .profile-sidebar {
+    width: 23%;
+    border: 1px solid #f3e9eb;
+    font-size: 16px;
+    font-weight: 500;
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      border: 1px solid #f3e9eb;
+      padding: 16px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+  .profile-content {
+    width: 77%;
+    padding-left: 32px;
+  }
+}
