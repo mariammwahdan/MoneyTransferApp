@@ -1,0 +1,56 @@
+.steps-container {
+  background-color: #fbfbfbfb;
+  padding: 64px 60px 64px 60px;
+
+  .header {
+    color: #24221e;
+    margin-bottom: 40px;
+    text-align: center;
+    h1 {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 40px;
+      line-height: 60px;
+
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+  }
+
+  .steps {
+    width: 75%;
+    margin: auto;
+    .step {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+
+      margin-bottom: 20px;
+
+      img {
+        width: 80px;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: bold;
+
+        span {
+          color: #871e35;
+        }
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        color: #3c3a37;
+      }
+    }
+  }
+}

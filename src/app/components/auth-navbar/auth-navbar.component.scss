@@ -1,0 +1,71 @@
+$main-line-height: 24px;
+$logo-line-height: 48px;
+
+.navbar {
+    line-height: $main-line-height !important;
+
+    .navbar-brand {
+        line-height: $logo-line-height;
+    }
+
+    .nav-link {
+        font-weight: 500;
+        color: #3C3A37;
+        line-height: $main-line-height;
+        padding-inline: 20px;
+    }
+
+    .buttons {
+        padding-left: 20px;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+
+    .dropdown {
+        a {
+            font-weight: 500;
+            border-color: #E3E2E2 !important;
+            padding: 8px 16px;
+        }
+
+        .dropdown-menu {
+            box-shadow: 0 0 20px 0 rgba(108, 118, 134, 0.109);
+            padding: 16px;
+
+            .dropdown-item {
+
+                &:hover,
+                &:focus {
+                    background-color:
+                        #F3E9EB !important;
+                }
+
+                &:active {
+                    background-color:
+                        #871E35 !important;
+                }
+            }
+        }
+
+        .dropdown-toggle {
+            &::after {
+                display: none;
+            }
+
+            .dropdown-arrow {
+                display: inline-block;
+                transition: transform 0.099s ease-in-out;
+            }
+
+            .dropdown-arrow-up {
+                transform: rotate(180deg);
+            }
+
+        }
+
+
+    }
+}
