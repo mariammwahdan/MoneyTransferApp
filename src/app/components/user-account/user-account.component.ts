@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MainFooterComponent } from '../main-footer/main-footer.component';
 import { MobileAppSectionComponent } from '../mobile-app-section/mobile-app-section.component';
-
-import { MyProfileComponent } from '../my-profile/my-profile.component';
-import { PaymentHistoryComponent } from '../payment-history/payment-history.component';
-
 import { AuthService } from '../../core/services/auth.service';
 import { TopSectionComponent } from '../../shared/top-section/top-section.component';
+import { PaymentComponent } from '../payment/payment.component';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
 
 @Component({
   selector: 'app-user-account',
@@ -15,8 +13,8 @@ import { TopSectionComponent } from '../../shared/top-section/top-section.compon
   imports: [
     MainFooterComponent,
     MobileAppSectionComponent,
-    MyProfileComponent,
-    PaymentHistoryComponent,
+    UserProfileComponent,
+    PaymentComponent,
     TopSectionComponent,
   ],
 

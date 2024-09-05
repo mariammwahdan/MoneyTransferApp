@@ -1,0 +1,41 @@
+.profile-details {
+  padding-top: 40px;
+
+  h2 {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 600;
+  }
+  h1 {
+    color: #24221e; /* Dark red color */
+    font-size: 64px;
+    line-height: 96px;
+    font-weight: 600;
+  }
+  // ul {
+  //   list-style: none;
+  //   padding-left: 0;
+  //   li {
+  //     font-size: 16px;
+  //     color: #3c3a37;
+  //     font-weight: 500;
+  //     padding: 20px;
+  //     span {
+  //       color: #6e6d6b;
+  //       font-weight: 400;
+  //       padding-left: 50px;
+  //     }
+  //   }
+  // }
+  .lis {
+    padding: 20px;
+    padding-left: 0;
+    font-size: 16px;
+    color: #3c3a37;
+    font-weight: 600;
+    .col {
+      color: #6e6d6b;
+      font-weight: 400;
+    }
+  }
+}
