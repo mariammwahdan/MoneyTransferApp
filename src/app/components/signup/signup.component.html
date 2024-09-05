@@ -1,0 +1,89 @@
+<div class="header">
+  <div class="container d-flex justify-content-between align-items-center py-5 mb-5">
+    <h1 class="fw-semibold">Speedo Transfer</h1>
+    <a routerLink="home" class="text-black"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.51562 22.4876L12.0016 12.0016L22.4876 22.4876M22.4876 1.51562L11.9996 12.0016L1.51562 1.51562"
+          stroke="#24221E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </div>
+</div>
+<div class="signup d-flex justify-content-center align-items-center">
+  <div class="card p-5">
+    <h2 class="mb-4 fw-semibold">Create Your Account</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
+      tempor incididunt ut labore.
+    </p>
+    <form class="mt-3">
+      <label for="" class="my-3 fs-6">Full name </label>
+      <input type="text" placeholder="Full name" />
+      <label for="" class="my-3 fs-6">Email </label>
+      <input type="email" placeholder="Email address" />
+      <label for="Country" class="my-3 fs-6">Country </label>
+      <select name="Country" id="Country" placeholder="UK">
+        <option disabled selected hidden class="px-5">uk</option>
+        <option value="United States">United States</option>
+        <option value="Afghanistan">Afghanistan</option>
+        <option value="Denmark">Denmark</option>
+        <option value="Egypt">Egypt</option>
+        <option value="French">French</option>
+        <option value="Germany">Germany</option>
+        <option value="Ghana">Ghana</option>
+        <option value="India">India</option>
+        <option value="Indonesia">Indonesia</option>
+        <option value="Iran">Iran (</option>
+        <option value="Iraq">Iraq</option>
+        <option value="Ireland">Ireland</option>
+        <option value="Israel">Palestine</option>
+        <option value="Italy">Italy</option>
+        <option value="Japan">Japan</option>
+        <option value="Jordan">Jordan</option>
+        <option value="Kazakhstan">Kazakhstan</option>
+        <option value="Kenya">Kenya</option>
+        <option value="Korea">Korea</option>
+        <option value="Kuwait">Kuwait</option>
+        <option value="Lebanon">Lebanon</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="Yemen">Yemen</option>
+        <option value="Serbia">Serbia</option>
+        <option value="Zambia">Zambia</option>
+        <option value="Zimbabwe">Zimbabwe</option>
+      </select>
+      <!-- 
+      <datalist id="countries">
+        <option value="UK"></option>
+        <option value="US"></option>
+        <option value="Egypt"></option>
+      </datalist> -->
+      <label for="" class="my-3 fs-6">Date Of birth </label>
+      <div class="date-of-birth d-flex justify-content-center align-content-center">
+        <div class="day-input pe-3">
+          <label for="" class="my-3 fs-6">Day </label>
+          <input type="day" placeholder="DD" />
+        </div>
+        <div class="month-input pe-3">
+          <label for="" class="my-3 fs-6">Month </label>
+          <input type="day" placeholder="Month" />
+        </div>
+        <div class="year-input">
+          <label for="" class="my-3 fs-6">Year </label>
+          <input type="day" placeholder="YYYY" />
+        </div>
+      </div>
+      <label for="" class="my-3 fs-6">Password </label>
+      <input type="password" placeholder="*********" />
+      <label for="" class="my-3 fs-6">Repassword </label>
+      <input type="password" placeholder="*********" class="mb-3" />
+      <small class="text-muted">The password should be at least eight characters long. To make it
+        stronger, use upper and lower case letters, numbers, and symbols like !
+        " ? $ % ^ & )</small>
+      <div class="register-btn mt-5">
+        <app-btn [label]="'Create Account'" [largeBtn]="true"></app-btn>
+      </div>
+      <p class="text-muted mt-4">Already have an account? <a
+          class="text-decoration-underline text-main-light cursor-pointer" routerLink="/login">Login</a></p>
+    </form>
+  </div>
+</div>

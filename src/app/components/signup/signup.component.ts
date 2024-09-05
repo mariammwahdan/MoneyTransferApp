@@ -4,15 +4,16 @@ import { AuthService } from '../../core/services/auth.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-signup',
   standalone: true,
   imports: [BtnComponent, RouterLink],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './signup.component.html',
+  styleUrl: './signup.component.scss'
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
   constructor(public _Nav: AuthService) { }
   ngOnInit() {
     this._Nav.hide();
   }
+
 }
