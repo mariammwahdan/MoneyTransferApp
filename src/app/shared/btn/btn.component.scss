@@ -9,14 +9,27 @@
   background-color: #521220;
   color: white;
 }
+.btn-dark-color:hover {
+  background-color: #871E35;
+  color: white;
+}
 
 .btn-light-color {
   background-color: #871E35;
   color: white;
 }
+.btn-light-color:hover {
+  background-color: #521220;
+  color: white;
+}
 
 .btn-outline {
   background-color: white;
+  border: 1px solid #24221E;
+  color: #24221E;
+}
+.btn-outline:hover {
+  background-color: #f3e9ebf0;
   border: 1px solid #24221E;
   color: #24221E;
 }

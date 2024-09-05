@@ -7,10 +7,11 @@ import { Error404Component } from "./components/error-404/error-404.component";
 import { HomeComponent } from "./components/home/home.component";
 import { AuthNavbarComponent } from "./components/auth-navbar/auth-navbar.component";
 import { HeaderComponent } from './components/header/header.component';
+import { TopSectionComponent } from "./shared/top-section/top-section.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MainFooterComponent, MobileAppSectionComponent, BtnComponent, Error404Component, HomeComponent, AuthNavbarComponent, HeaderComponent],
+  imports: [RouterOutlet, MainFooterComponent, MobileAppSectionComponent, BtnComponent, Error404Component, TopSectionComponent, HomeComponent, AuthNavbarComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
