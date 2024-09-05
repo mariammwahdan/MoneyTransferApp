@@ -92,3 +92,7 @@ select {
 .text-light-main-color {
   color: $main-light-color;
 }
+
+.hidden {
+  display: none !important;
+}

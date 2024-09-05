@@ -12,4 +12,5 @@ export class TopSectionComponent {
   @Input() topHeader: string = '';
   @Input() path: string = '';
   @Input() current: string = '';
+  @Input() subPath: string = '';
 }
