@@ -1,5 +1,5 @@
 .top-section {
-  background-image: url(../../../assets/imgs/404_background.png); 
+  background-image: url(../../../assets/imgs/404_background.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -7,10 +7,18 @@
 
   .layer {
     background-color: #f3e9ebf0;
+
+    .navigators {
+      span {
+        cursor: pointer;
+      }
+    }
   }
+
   .fa-circle {
     font-size: 5px;
   }
+
   .Transfer-img {
     width: 40%;
   }

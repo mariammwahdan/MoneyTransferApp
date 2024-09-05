@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BtnComponent } from '../../shared/btn/btn.component';
 import { TopSectionComponent } from "../../shared/top-section/top-section.component";
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-error-404',
@@ -9,6 +10,9 @@ import { TopSectionComponent } from "../../shared/top-section/top-section.compon
   templateUrl: './error-404.component.html',
   styleUrl: './error-404.component.scss'
 })
-export class Error404Component {
-
+export class Error404Component implements OnInit {
+  constructor(public _Nav: AuthService) { }
+  ngOnInit() {
+    this._Nav.show();
+  }
 }
