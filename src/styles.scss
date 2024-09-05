@@ -67,6 +67,18 @@ body {
     width: fit-content;
 }
 
+input{
+    width: 100%;
+    padding:15px;
+    border-radius: 8px;
+    border: 1px solid #c8c8c7;
+}
+
+input:focus{
+    outline: none;
+    box-shadow: 1px 1px 15px 1px #871e3541;
+}
+
 .bg-gray {
     background-color: $gray-color;
 }

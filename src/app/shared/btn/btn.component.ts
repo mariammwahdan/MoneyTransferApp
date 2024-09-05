@@ -10,8 +10,8 @@ import { BlobOptions } from 'node:buffer';
 })
 export class BtnComponent {
   @Input() label: string = '';
-  @Input() dark: boolean = true;
-  @Input() light: boolean = false;
+  @Input() dark: boolean = false;
+  @Input() light: boolean = true;
   @Input() outline: boolean = false;
   @Input() largeBtn: boolean = false;
 }
