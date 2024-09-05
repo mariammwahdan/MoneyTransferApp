@@ -5,17 +5,25 @@ import { AuthService } from '../../core/services/auth.service';
 import { TopSectionComponent } from '../../shared/top-section/top-section.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
+import { SettingComponent } from '../setting/setting.component';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-user-account',
   standalone: true,
 
   imports: [
+    RouterLinkActive,
+    RouterOutlet,
+    RouterLink,
     MainFooterComponent,
     MobileAppSectionComponent,
     UserProfileComponent,
     PaymentComponent,
     TopSectionComponent,
+    SettingComponent,
+    ChangePasswordComponent,
   ],
 
   templateUrl: './user-account.component.html',
