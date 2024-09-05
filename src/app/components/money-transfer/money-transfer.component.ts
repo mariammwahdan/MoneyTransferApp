@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavbarService } from '../../core/services/navbar.service';
 
 @Component({
   selector: 'app-money-transfer',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './money-transfer.component.html',
   styleUrl: './money-transfer.component.scss'
 })
-export class MoneyTransferComponent {
+export class MoneyTransferComponent implements OnInit {
+  constructor(public _nav: NavbarService) { }
 
+  ngOnInit(): void {
+    this._nav.show();
+  }
 }

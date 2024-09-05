@@ -6,12 +6,26 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HelpComponent } from './components/help/help.component';
+import { Component } from '@angular/core';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { SettingComponent } from './components/setting/setting.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'transferMoney', component: MoneyTransferComponent },
-    { path: 'myAccount', component: UserAccountComponent, title: "My Account" },
+    {
+        path: 'myAccount', component: UserAccountComponent, title: "My Account",
+        children: [
+            { path: '', redirectTo: 'profile', pathMatch: 'full' },
+            { path: 'profile', component: UserProfileComponent },
+            { path: 'payment', component: PaymentComponent },
+            { path: 'setting', component: SettingComponent },
+            { path: 'changePassword', component: ChangePasswordComponent },
+        ]
+    },
     { path: 'help', component: HelpComponent, title: 'Help' },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
