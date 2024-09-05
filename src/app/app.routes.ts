@@ -6,10 +6,10 @@ import { UserAccountComponent } from './components/user-account/user-account.com
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { MoneyTransferComponent } from './components/money-transfer/money-transfer.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HelpComponent } from './components/help/help.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { HelpPageComponent } from './components/help-page/help-page.component';
+import { Error404Component } from './components/error-404/error-404.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,8 +25,8 @@ export const routes: Routes = [
             { path: 'changePassword', component: ChangePasswordComponent },
         ]
     },
-    { path: 'help', component: HelpComponent, title: 'Help' },
+    { path: 'help', component: HelpPageComponent, title: 'Help' },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: '**', component: NotFoundComponent, title: 'Not Found' }
+    { path: 'register', component: SignupComponent },
+    { path: '**', component: Error404Component, title: 'Not Found' }
 ];
