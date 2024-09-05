@@ -9,18 +9,41 @@
             Fast, secure, and affordable international money transfers. Get
             started in minutes.
           </p>
-          <app-btn [label]="'Create Account'" [largeBtn]="false"></app-btn>
+
+          <app-btn
+            [label]="'Create An Account'"
+            routerLink="/register"
+            [ngClass]="{ hidden: _Nav.isLoggedIn() }"
+          ></app-btn>
+          <app-btn
+            [label]="'Transfer Now'"
+            routerLink="/register"
+            [ngClass]="{ hidden: !_Nav.isLoggedIn() }"
+          ></app-btn>
         </div>
       </div>
 
       <div class="col-lg-6 col-md-12 col-sm-12 w-auto">
-        <div class="send-money-box mt-4">
+        <div class="send-money-box card mt-4">
+          <div
+            class="balance-box bg-pink px-3 py-1 rounded-3 mb-3"
+            [ngClass]="{ hidden: !_Nav.isLoggedIn() }"
+          >
+            <p class="text-main-dark">Current Balance</p>
+            <h2 class="text-main-light fw-semibold">10000EGP</h2>
+          </div>
           <label for="amount">Send Amount</label>
           <input type="number" id="amount" placeholder="1000" />
+          <<<<<<< HEAD
           <p>Delivery Time: <span>By May 20th</span></p>
           <app-btn [label]="'Continue'" [largeBtn]="true"></app-btn>
-          <p class="terms">
-            By Clicking Continue, I'm agree with
+          <p class="terms">=======</p>
+
+          <p class="delivery-time">Delivery Time: <span>By May 20th</span></p>
+          <app-btn [label]="'Continue'" [largeBtn]="true"></app-btn>
+          <p class="terms mt-4 mb-0">
+            >>>>>>> 52eb15ef2fb75dd59f63e4cc204d7ebea5eff538 By Clicking
+            Continue, I'm agree with
             <a class="text-light-main-color" href="#">Terms & Policy</a>
           </p>
         </div>

@@ -7,6 +7,10 @@
           <span class="path d-flex gap-1" routerLink="/home">
             {{path}}
           </span>
+          @if (subPath) {
+          <span class=" fw-semibold d-flex align-items-center gap-2">
+            <i class="fa-solid fa-circle ms-2"></i> {{subPath}}</span>
+          }
           <span class="text-main-light fw-semibold d-flex align-items-center gap-2">
             <i class="fa-solid fa-circle ms-2"></i> {{current}}</span>
         </div>

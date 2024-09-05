@@ -1,5 +1,5 @@
-<div class="footer-container bg-main">
-  <div class="footer-content">
+<footer class="footer-container bg-main" *ngIf="_Nav.visible" [ngClass]="{'hidden':_Nav.isLoggedIn()}">
+  <div class=" footer-content">
     <h2>Speedo Transfer</h2>
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -13,4 +13,4 @@
   <div class="footer-bottom">
     <p>All Rights Reserved for Speedo Transfer ©2024</p>
   </div>
-</div>
+</footer>

@@ -7,15 +7,19 @@
     color: #ffffff;
     padding-top: 200px;
     padding-bottom: 200px;
+
     .content {
       font-weight: 600;
+
       h1 {
         font-size: 20px;
       }
+
       h2 {
         font-size: 64px;
         line-height: 96px;
       }
+
       p {
         font-weight: 500;
         font-size: 16px;
@@ -23,31 +27,34 @@
       }
     }
   }
+
   .send-money-box {
-    background-color: #ffffff;
     padding: 32px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
+
     label {
       font-weight: 500;
       color: #24221e;
       margin-bottom: 20px;
     }
+
     input {
       width: 100%;
       padding: 10px;
       border: 1px solid #e3e2e2;
-      border-radius: 8px;
+
+      border-radius: 5px;
+
       &::placeholder {
         color: black;
       }
     }
-    p {
+
+    .delivery-time {
       color: #898886;
       font-weight: 400;
       margin-top: 20px;
-      margin-bottom: 20px;
+      // margin-bottom: 20px;
+
       span {
         color: #3c3a37;
         font-weight: 500;
@@ -56,6 +63,7 @@
 
     .terms {
       color: #898886;
+
       a {
         font-weight: 500;
         text-decoration: none;
