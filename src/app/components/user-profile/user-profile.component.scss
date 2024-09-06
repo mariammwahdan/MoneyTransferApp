@@ -5,33 +5,23 @@
     font-weight: 600;
   }
   h1 {
-    color: #24221e; /* Dark red color */
+    color: #24221e;
     font-size: 64px;
     line-height: 96px;
     font-weight: 600;
+    margin-top: 30px;
+    span {
+      font-size: 40px;
+    }
   }
-  // ul {
-  //   list-style: none;
-  //   padding-left: 0;
-  //   li {
-  //     font-size: 16px;
-  //     color: #3c3a37;
-  //     font-weight: 500;
-  //     padding: 20px;
-  //     span {
-  //       color: #6e6d6b;
-  //       font-weight: 400;
-  //       padding-left: 50px;
-  //     }
-  //   }
-  // }
-  .lis {
+
+  .list-row {
     padding: 20px;
     padding-left: 0;
     font-size: 16px;
     color: #3c3a37;
     font-weight: 600;
-    .col {
+    .col-style {
       color: #6e6d6b;
       font-weight: 400;
     }
