@@ -1,43 +1,41 @@
-<div class="container">
-  <div class="transfer-confirmation-container my-5">
-    <div class="amount-details">
-      <div>Total amount</div>
-      <div>1000 EGP</div>
-    </div>
-    <!-- From card -->
-    <div class="account-card">
-      <div class="d-flex gap-md-4 gap-sm-1 align-items-center">
-        <div class="bank-icon bg-gray-light p-2">
-          <img src="assets/imgs/bank.png" />
-        </div>
-        <div>
-          <div class="from-label text-light-main-color">From</div>
-          <div class="account-name my-3">Jonathon Smith</div>
-          <div class="account-number">Account xxxx7890</div>
-        </div>
-      </div>
-    </div>
-    <!-- Switch Icon -->
-    <div class="d-flex justify-content-center my-3">
-      <img src="assets/imgs/transfer.png" />
-    </div>
-    <!-- To card -->
-    <div class="account-card">
-      <div class="d-flex gap-md-4 gap-sm-1 align-items-center">
-        <div class="bank-icon bg-gray-light p-2">
-          <img src="assets/imgs/bank.png" />
-        </div>
-        <div>
-          <div class="to-label text-light-main-color">To</div>
-          <div class="account-name my-3">Asmaa Dosuky</div>
-          <div class="account-number">Account xxxx7890</div>
-        </div>
-      </div>
-    </div>
-    <!-- Buttons -->
-    <div class="my-4">
-      <app-btn [label]="'Confirm'" [largeBtn]="true"></app-btn>
-    </div>
-    <app-btn [label]="'Back'" [largeBtn]="true" [outline]="true"></app-btn>
+<div class="transfer-confirmation-container">
+  <div class="amount-details">
+    <div>Total amount</div>
+    <div>1000 EGP</div>
   </div>
+  <!-- From card -->
+  <div class="account-card">
+    <div class="d-flex gap-md-4 gap-sm-1 align-items-center">
+      <div class="bank-icon bg-gray-light p-2">
+        <img src="assets/imgs/bank.png" alt="bank icon" />
+      </div>
+      <div>
+        <div class="from-label text-light-main-color">From</div>
+        <div class="account-name my-3">Jonathon Smith</div>
+        <div class="account-number">Account xxxx7890</div>
+      </div>
+    </div>
+  </div>
+  <!-- Switch Icon -->
+  <div class="d-flex justify-content-center my-3">
+    <img src="assets/imgs/transfer.png" alt="switch icon" />
+  </div>
+  <!-- To card -->
+  <div class="account-card">
+    <div class="d-flex gap-md-4 gap-sm-1 align-items-center">
+      <div class="bank-icon bg-gray-light p-2">
+        <img src="assets/imgs/bank.png" alt="bank icon" />
+      </div>
+      <div>
+        <div class="to-label text-light-main-color">To</div>
+        <div class="account-name my-3">Asmaa Dosuky</div>
+        <div class="account-number">Account xxxx7890</div>
+      </div>
+    </div>
+  </div>
+  <!-- Buttons -->
+  <div class="my-4">
+    <app-btn [label]="'Confirm'" [largeBtn]="true"></app-btn>
+  </div>
+  <app-btn [label]="'Back'" [largeBtn]="true" [outline]="true"></app-btn>
 </div>

@@ -5,6 +5,8 @@ import { MobileAppSectionComponent } from '../mobile-app-section/mobile-app-sect
 import { AuthService } from '../../core/services/auth.service';
 import { TopSectionComponent } from '../../shared/top-section/top-section.component';
 import { TransferConfirmationComponent } from '../transfer-confirmation/transfer-confirmation.component';
+import { ThePaymentComponent } from '../the-payment/the-payment.component';
+import { TransferAmountComponent } from '../transfer-amount/transfer-amount.component';
 
 @Component({
   selector: 'app-money-transfer',
@@ -14,6 +16,8 @@ import { TransferConfirmationComponent } from '../transfer-confirmation/transfer
     MainFooterComponent,
     TopSectionComponent,
     TransferConfirmationComponent,
+    ThePaymentComponent,
+    TransferAmountComponent,
   ],
   templateUrl: './money-transfer.component.html',
   styleUrl: './money-transfer.component.scss',
