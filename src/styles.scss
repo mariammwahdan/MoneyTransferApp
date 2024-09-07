@@ -2,10 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 $primary-color: #f3e9eb;
 $main-dark-color: #521220;
-$main-light-color: #871E35;
-$gray-color: #3C3A37;
-$gray-light: #E3E2E2;
-
+$main-light-color: #871e35;
+$gray-color: #3c3a37;
+$gray-light: #e3e2e2;
 
 body {
   font-family: "Inter", sans-serif;
@@ -17,13 +16,11 @@ body {
 
 .bg-main-light {
   background-color: $main-light-color;
-
 }
 
 .bg-pink {
   background-color: $primary-color;
 }
-
 .text-main-dark {
   color: $main-dark-color;
 }
@@ -53,7 +50,6 @@ body {
   color: $gray-color;
 }
 
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -79,7 +75,6 @@ select {
     box-shadow: 0px 0px 5px 0px #8d122c4f;
   }
 }
-
 
 .bg-gray {
   background-color: $gray-color;

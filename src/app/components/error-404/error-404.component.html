@@ -1,6 +1,12 @@
-<app-top-section [topHeader]="'Error'" [path]="'Home'" [current]="'Error'"></app-top-section>
+<app-top-section
+  [topHeader]="'Error'"
+  [path]="'Home'"
+  [current]="'Error'"
+></app-top-section>
 <div class="section-404 my-5 py-5">
-  <div class="container d-flex flex-column justify-content-center align-items-center gap-4">
+  <div
+    class="container d-flex flex-column justify-content-center align-items-center gap-4"
+  >
     <h1 class="fw-semibold">Error</h1>
     <img src="./assets/imgs/404.svg" alt="" />
     <p class="mt-5">
@@ -10,3 +16,4 @@
     <app-btn [label]="'Register Now'" routerLink="/register"></app-btn>
   </div>
 </div>
+<app-main-footer></app-main-footer>

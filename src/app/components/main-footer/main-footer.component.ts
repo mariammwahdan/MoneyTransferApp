@@ -1,5 +1,5 @@
 import { NgClass, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
@@ -10,5 +10,5 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './main-footer.component.scss',
 })
 export class MainFooterComponent {
-  constructor(public _Nav: AuthService) { }
+  constructor(public _Nav: AuthService) {}
 }
