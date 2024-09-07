@@ -1,0 +1,54 @@
+$primary-gray: #898886;
+
+.steps {
+    width: 25%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid $primary-gray;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    color: $primary-gray;
+}
+
+
+
+.step-container {
+    cursor: pointer;
+
+    span {
+        color: #908a81;
+        font-weight: 500;
+        margin-inline: 17px;
+    }
+}
+
+.step-line {
+    height: 2px;
+    width: 54px;
+    background-color: $primary-gray;
+}
+
+.active-step,
+.first-step {
+    border-color: #871E35;
+    color: #871E35;
+
+}
+
+.first-step-line {
+    background-color: #871E35;
+}
+
+.active-step-title {
+    color: #24221E;
+}

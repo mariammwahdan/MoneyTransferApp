@@ -10,11 +10,23 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HelpPageComponent } from './components/help-page/help-page.component';
 import { Error404Component } from './components/error-404/error-404.component';
+import { AmountComponent } from './components/amount/amount.component';
+import { MoneyConfirmationComponent } from './components/money-confirmation/money-confirmation.component';
+import { MoneyPaymentComponent } from './components/money-payment/money-payment.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
-    { path: 'transferMoney', component: MoneyTransferComponent },
+    {
+        path: 'transferMoney', component: MoneyTransferComponent,
+        children: [
+            { path: '', redirectTo: 'Amount', pathMatch: 'full' },
+            { path: 'Amount', component: AmountComponent },
+            { path: 'Confirmation', component: MoneyConfirmationComponent },
+            { path: 'Payment', component: MoneyPaymentComponent },
+
+        ]
+    },
     {
         path: 'myAccount', component: UserAccountComponent, title: "My Account",
         children: [

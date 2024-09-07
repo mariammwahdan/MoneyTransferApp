@@ -6,7 +6,6 @@ $main-light-color: #871E35;
 $gray-color: #3C3A37;
 $gray-light: #E3E2E2;
 
-
 body {
   font-family: "Inter", sans-serif;
 }
@@ -70,9 +69,9 @@ body {
 input,
 select {
   width: 100%;
-  padding: 15px;
+  padding: 12px;
   border-radius: 8px;
-  border: 1px solid #c8c8c7;
+  border: 1px solid #B0AFAE;
 
   &:focus {
     outline: none;
