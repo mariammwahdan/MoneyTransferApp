@@ -1,0 +1,65 @@
+<div
+  class="payment d-flex flex-column justify-content-center align-items-center gap-4"
+>
+  <div class="correct-icon">
+    <img src="assets/imgs/correct.svg" alt="correct icon" />
+  </div>
+  <div class="content text-center">
+    <h2 class="fs-1 fw-semibold">Your transfer was successful</h2>
+    <h1 class="display-4 fw-semibold mt-4">
+      1000 <span class="text-main-light"> EGP</span>
+    </h1>
+  </div>
+  <div class="transition">
+    <div class="from rounded-2">
+      <div class="row justify-content-center align-content-center">
+        <div class="col-2 d-flex justify-content-center align-content-center">
+          <img
+            src="../../../assets/imgs/home.svg"
+            class="w-75 ms-3"
+            alt="gome icon"
+          />
+        </div>
+        <div
+          class="col-10 d-flex flex-column justify-content-center align-content-center"
+        >
+          <p class="text-main-light mt-3">From</p>
+          <p class="fw-semibold fs-4">Jonathon Smith</p>
+          <p class="account-p">Account xxxx7890</p>
+        </div>
+      </div>
+    </div>
+    <div class="double-arrows-icon text-center p-3">
+      <i class="fa-solid fa-arrow-right-arrow-left"></i>
+    </div>
+    <div class="to rounded-2">
+      <div class="row justify-content-center align-content-center">
+        <div class="col-2 d-flex justify-content-center align-content-center">
+          <img
+            src="../../../assets/imgs/home.svg"
+            class="w-75 ms-3"
+            alt="gome icon"
+          />
+        </div>
+        <div
+          class="col-10 d-flex flex-column justify-content-center align-content-center"
+        >
+          <p class="text-main-light mt-3">To</p>
+          <p class="fw-semibold fs-4">Asmaa Dosuky</p>
+          <p class="account-p">Account xxxx7890</p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="transfer-amount text-muted d-flex justify-content-between border-bottom mt-5"
+    >
+      <p>Transfer amount amount</p>
+      <p>1000 EGP</p>
+    </div>
+    <div class="buttons d-flex flex-column gap-3 mt-4 mb-5">
+      <app-btn [largeBtn]="true" [label]="'Back to Home'" routerLink="/home"></app-btn>
+
+      <app-btn [largeBtn]="true" [outline]="true" [label]="'Add To Favourite'"></app-btn>
+    </div>
+  </div>
+</div>

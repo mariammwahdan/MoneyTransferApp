@@ -1,0 +1,26 @@
+.header {
+  .container {
+    width: 85%;
+  }
+}
+.loggedOut-message {
+  background-color: #e3e2e2;
+  width: 43%;
+  .alert-text{
+    font-size: 20px;
+    line-height: 30px;
+  }
+  &.closing {
+  display: none !important; 
+}
+}
+.logout {
+  .card {
+    width: 40%;
+    margin-bottom: 200px;
+  }
+  a:hover {
+    text-decoration: none !important;
+  }
+}
+

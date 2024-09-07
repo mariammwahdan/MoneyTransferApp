@@ -1,16 +1,59 @@
-.header{
-    .container{
-        width: 85%;
-    }
+.header {
+  .container {
+    width: 85%;
+  }
 }
-.signup{
-    .card{
-        width: 42%;
-        margin-bottom: 200px;
-        form{
-            a:hover{
-                text-decoration: none !important;
-            }
+.signup {
+  .card {
+    width: 40%;
+    margin-bottom: 100px;
+    form {
+        .month-input{
+            width: 80%;
         }
+        .year-input{
+            width: 50%;
+        }
+      a:hover {
+        text-decoration: none !important;
+      }
     }
+    >p{
+        font-size: 15px;
+    }
+  }
+  // .select-placholder{
+  //     [selected]{
+  //         color: aquamarine;
+  //     }
+  // }
+//   option[selected] {
+//     color: blue;
+//   }
+//  option:checked {
+//     color: aquamarine;
+//   }
+
+  .custom-select {
+  position: relative;
+}
+
+.custom-select select {
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+  appearance: none;
+}
+
+.custom-select select option {
+  padding: 10px;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #ccc;
+}
 }
