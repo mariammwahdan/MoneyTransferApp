@@ -1,7 +1,7 @@
 <app-top-section [topHeader]="'Money Transfer'" [path]="'Home'" [subPath]="'About Us'"
     [current]="activeLink"></app-top-section>
 
-<section class="transfer-sec pb-5">
+<section class="transfer-sec my-5 pb-5">
     <div class="container">
         <div class="steps d-flex justify-content-center align-items-center ">
             <div class="row step-container active-step d-flex flex-column gap-4  align-items-center" routerLink="Amount"
@@ -16,7 +16,8 @@
             <div class="row step-container active-step d-flex flex-column gap-4  align-items-center"
                 routerLink="Confirmation">
                 <div class="contain-title d-flex  align-items-center ">
-                    <div class="step col-md-6  mx-2  " routerLink="Confirmation" routerLinkActive="active-step">02</div>
+                    <div class="step col-md-6  mx-2  " routerLink="Confirmation" [routerLinkActive]="'active-step'">
+                        02</div>
                     <div class="step-line col-md-6"></div>
                 </div>
                 <span routerLink="Confirmation" routerLinkActive="active-step-title">Confirmation</span>
@@ -29,9 +30,12 @@
                 <span routerLink="Payment" routerLinkActive="active-step-title">Payment</span>
             </div>
         </div>
-        <router-outlet></router-outlet>
+        <div class="transfer-container">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 
 
 </section>
 <app-mobile-app-section></app-mobile-app-section>
+<app-main-footer></app-main-footer>

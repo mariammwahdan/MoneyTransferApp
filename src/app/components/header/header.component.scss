@@ -1,6 +1,6 @@
 .headerBackground {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
-    url("../../../assets/imgs/headerImg.jpeg");
+    url("/assets/imgs/headerImg.jpeg");
   background-size: cover;
 
   .header-container {
@@ -52,7 +52,6 @@
       color: #898886;
       font-weight: 400;
       margin-top: 20px;
-      // margin-bottom: 20px;
 
       span {
         color: #3c3a37;

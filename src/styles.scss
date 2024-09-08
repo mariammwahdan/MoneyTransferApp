@@ -6,6 +6,7 @@ $main-light-color: #871E35;
 $gray-color: #3C3A37;
 $gray-light: #E3E2E2;
 
+
 body {
   font-family: "Inter", sans-serif;
 }
@@ -16,7 +17,6 @@ body {
 
 .bg-main-light {
   background-color: $main-light-color;
-
 }
 
 .bg-pink {
@@ -52,7 +52,6 @@ body {
   color: $gray-color;
 }
 
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -78,7 +77,6 @@ select {
     box-shadow: 0px 0px 5px 0px #8d122c4f;
   }
 }
-
 
 .bg-gray {
   background-color: $gray-color;

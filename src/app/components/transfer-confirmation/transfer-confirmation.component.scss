@@ -1,0 +1,33 @@
+.transfer-confirmation-container {
+  .amount-details {
+    padding: 16px 0px 16px 0px;
+    border-bottom: 1px solid #e3e2e2;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #565552;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+  .account-card {
+    background-color: #f6f6f6;
+    padding: 16px;
+    border-radius: 8px;
+    .bank-icon {
+      font-size: 1px;
+      border-radius: 100%;
+    }
+    .from-label,
+    .to-label {
+      font-weight: 500;
+    }
+    .account-name {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .account-number {
+      color: #898886;
+      font-weight: 400;
+    }
+  }
+}

@@ -18,7 +18,7 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  constructor(public _Nav: AuthService) { }
+  constructor(public _Nav: AuthService) {}
   ngOnInit() {
     this._Nav.show();
   }

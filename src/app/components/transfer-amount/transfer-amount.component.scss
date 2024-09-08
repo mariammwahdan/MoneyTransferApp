@@ -1,0 +1,78 @@
+.transfer-amount-container {
+  .amount-title {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 26px;
+    font-size: 39px;
+  }
+
+  .recipient-info {
+    font-size: 20px;
+
+    span {
+      line-height: 28px;
+    }
+  }
+}
+
+.modal-dialog {
+  max-width: 40%;
+  margin: auto;
+
+  .modal-content {
+    border-radius: 8px;
+    padding: 40px 30px;
+    font-weight: 400;
+
+    .modal-header {
+      border-bottom: none;
+    }
+
+    .modal-body {
+      margin-top: 20px;
+
+      .favorite-item {
+        background-color: #f6f6f6;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+
+        .bankk-icon {
+          font-size: 1px;
+          border-radius: 100%;
+        }
+
+        .fav-name {
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        .fav-number {
+          color: #898886;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .modal-dialog {
+    max-width: 90%;
+  }
+
+}
+
+@media (min-width: 575.98px) and (max-width: 990px) {
+  .modal-dialog {
+    max-width: 65%;
+  }
+
+}
+
+@media (min-width: 990px) and (max-width: 1400px) {
+  .modal-dialog {
+    max-width: 45%;
+  }
+
+}

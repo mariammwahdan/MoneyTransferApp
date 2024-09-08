@@ -1,0 +1,60 @@
+<div
+  class="payment d-flex flex-column justify-content-center align-items-center"
+>
+  <div class="correct-icon mb-4">
+    <img src="assets/imgs/correct.svg" alt="correct icon" />
+  </div>
+  <div class="content text-center mb-3">
+    <h2 class="fw-semibold transfer-succ">Your transfer was successful</h2>
+    <h1 class="display-4 fw-semibold mt-4 transfer-am">
+      1000 <span class="text-main-light"> EGP</span>
+    </h1>
+  </div>
+
+  <div class="account-card">
+    <div class="d-flex gap-md-4 gap-sm-1 align-items-center">
+      <div class="bank-icon bg-gray-light p-2">
+        <img src="assets/imgs/bank.png" alt="bank icon" />
+      </div>
+      <div>
+        <div class="from-label text-light-main-color">From</div>
+        <div class="account-name my-3">Jonathon Smith</div>
+        <div class="account-number">Account xxxx7890</div>
+      </div>
+    </div>
+  </div>
+  <!-- Switch Icon -->
+  <div class="d-flex justify-content-center my-3">
+    <img src="assets/imgs/transfer.png" alt="switch icon" />
+  </div>
+  <div class="account-card">
+    <div class="d-flex gap-md-4 gap-sm-1 align-items-center">
+      <div class="bank-icon bg-gray-light p-2">
+        <img src="assets/imgs/bank.png" alt="bank icon" />
+      </div>
+      <div>
+        <div class="from-label text-light-main-color">From</div>
+        <div class="account-name my-3">Jonathon Smith</div>
+        <div class="account-number">Account xxxx7890</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="amount-details w-100 mt-3">
+    <div>Transfer amount</div>
+    <div>1000 EGP</div>
+  </div>
+  <div class="buttons w-100 d-flex flex-column gap-4">
+    <app-btn
+      [largeBtn]="true"
+      [label]="'Back to Home'"
+      routerLink="/home"
+    ></app-btn>
+
+    <app-btn
+      [largeBtn]="true"
+      [outline]="true"
+      [label]="'Add To Favourite'"
+    ></app-btn>
+  </div>
+</div>

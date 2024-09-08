@@ -1,0 +1,21 @@
+<form class="mt-3 w-75">
+  <div class="form-group">
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" placeholder="Jonathon Smith" />
+  </div>
+  <div class="form-group">
+    <label for="country">Country</label>
+    <input type="text" id="country" placeholder="UK" />
+  </div>
+  <div class="row mb-4">
+    <div class="form-group col-6">
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" placeholder="+880125412624" />
+    </div>
+    <div class="form-group col-6">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="jhonathonsmith@gmail.com" />
+    </div>
+  </div>
+  <app-btn [label]="'Update Profile'" [largeBtn]="false"></app-btn>
+</form>
