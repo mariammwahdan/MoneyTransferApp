@@ -1,15 +1,16 @@
 <div class="headerBackground">
   <div class="header-container container">
     <div class="row justify-content-between">
-      <div class="col-lg-6 col-md-12 col-sm-12">
+      <div class="col-lg-6">
         <div class="content">
           <h1>Simple. Quick. Secure.</h1>
-          <h2>Send Money Anywhere, Instantly</h2>
+          <h2 class="fw-semibold">Send Money Anywhere, Instantly</h2>
           <p>
             Fast, secure, and affordable international money transfers. Get
             started in minutes.
           </p>
-          <app-btn
+          <div class="buttons mt-5">
+            <app-btn
             [label]="'Create An Account'"
             routerLink="/register"
             [ngClass]="{ hidden: _Nav.isLoggedIn() }"
@@ -19,10 +20,11 @@
             routerLink="/transferMoney"
             [ngClass]="{ hidden: !_Nav.isLoggedIn() }"
           ></app-btn>
+          </div>
         </div>
       </div>
 
-      <div class="col-lg-6 col-md-12 col-sm-12 w-auto">
+      <div class="col-lg-6 w-auto">
         <div class="send-money-box card mt-4">
           <div
             class="balance-box bg-pink px-3 py-1 rounded-3 mb-3"

@@ -8,52 +8,51 @@
     width: 40%;
     margin-bottom: 100px;
     form {
-        .month-input{
-            width: 80%;
-        }
-        .year-input{
-            width: 50%;
-        }
+      .month-input {
+        width: 80%;
+      }
+      .year-input {
+        width: 50%;
+      }
       a:hover {
         text-decoration: none !important;
       }
     }
-    >p{
-        font-size: 15px;
+    > p {
+      font-size: 15px;
     }
   }
-  // .select-placholder{
-  //     [selected]{
-  //         color: aquamarine;
-  //     }
-  // }
-//   option[selected] {
-//     color: blue;
-//   }
-//  option:checked {
-//     color: aquamarine;
-//   }
 
   .custom-select {
-  position: relative;
+    position: relative;
+  }
+
+  .custom-select select {
+    appearance: none;
+  }
+
+  .custom-select select option {
+    padding: 10px;
+  }
+
+  .dropdown-arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #ccc;
+  }
 }
 
-.custom-select select {
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-  appearance: none;
+@media (max-width: 767px) {
+  .card {
+    width: 75% !important;
+  }
 }
 
-.custom-select select option {
-  padding: 10px;
-}
-
-.dropdown-arrow {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  font-size: 12px;
-  color: #ccc;
-}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .card {
+    width: 58% !important;
+  }
 }

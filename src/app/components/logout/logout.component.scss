@@ -6,13 +6,13 @@
 .loggedOut-message {
   background-color: #e3e2e2;
   width: 43%;
-  .alert-text{
+  .alert-text {
     font-size: 20px;
     line-height: 30px;
   }
   &.closing {
-  display: none !important; 
-}
+    display: none !important;
+  }
 }
 .logout {
   .card {
@@ -24,3 +24,28 @@
   }
 }
 
+@media (max-width: 767px) {
+  .loggedOut-message {
+    width: 78%;
+    p{
+      font-size: 16px !important;
+    }
+  }
+
+  .card {
+    width: 75% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .loggedOut-message {
+    width: 61%;
+    p{
+      font-size: 18px !important;
+    }
+  }
+
+  .card {
+    width: 58% !important;
+  }
+}
