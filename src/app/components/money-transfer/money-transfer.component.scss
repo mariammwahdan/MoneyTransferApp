@@ -1,0 +1,33 @@
+.transfer-container {
+  width: 35%;
+  margin: auto;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 575.98px) {
+  .transfer-container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 575.98px) and (max-width: 650px) {
+  .transfer-container {
+    width: 90%;
+  }
+}
+@media (min-width: 650px) and (max-width: 990px) {
+  .transfer-container {
+    width: 70%;
+  }
+}
+@media (min-width: 990px) and (max-width: 1300px) {
+  .transfer-container {
+    width: 50%;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1400px) {
+  .transfer-container {
+    width: 40%;
+  }
+}
