@@ -32,7 +32,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'myprofile', pathMatch: 'full' },
       { path: 'myprofile', component: UserProfileComponent },
-      { path: 'payment', component: ThePaymentComponent },
+      { path: 'the-payment', component: PaymentComponent },
       {
         path: 'setting',
         component: SettingComponent,

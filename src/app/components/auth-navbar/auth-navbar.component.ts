@@ -34,5 +34,6 @@ export class AuthNavbarComponent {
   }
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('sendingAmount');
   }
 }

@@ -1,4 +1,7 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { baseUrl } from '../environment/local-environment';
 
 
 @Injectable({
@@ -6,6 +9,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   visible: boolean;
+  // private readonly _HttpClient = inject(HttpClient);
   constructor() { this.visible = true; }
 
   hide() { this.visible = false; }
@@ -21,4 +25,8 @@ export class AuthService {
       return false;
     }
   }
+
+
+
+
 }
