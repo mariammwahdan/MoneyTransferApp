@@ -1,18 +1,41 @@
-<app-top-section topHeader="My Account" path="Home" current="My Account"></app-top-section>
+<app-top-section
+  topHeader="My Account"
+  path="Home"
+  [current]="activeLink"
+  [subPath]="'My Account'"
+></app-top-section>
 <div class="profile-container container">
   <div class="profile-sidebar">
     <ul class="navbar-nav ms-auto mb-2 me-4 mb-lg-0 w-100">
       <li class="nav-item">
-        <a class="nav-link" aria-current="page" routerLink="myprofile" routerLinkActive="active">My Profile</a>
+        <a
+          class="nav-link"
+          aria-current="page"
+          routerLink="Profile"
+          routerLinkActive="active"
+          >My Profile</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="the-payment" routerLinkActive="active">Payments History</a>
+        <a class="nav-link" routerLink="Payment" routerLinkActive="active"
+          >Payments History</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="setting/profile" routerLinkActive="active">Settings</a>
+        <a
+          class="nav-link"
+          routerLink="Setting/Profile"
+          routerLinkActive="active"
+          >Settings</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="setting/changePassword" routerLinkActive="active">Change Password</a>
+        <a
+          class="nav-link"
+          routerLink="Setting/ChangePassword"
+          routerLinkActive="active"
+          >Change Password</a
+        >
       </li>
     </ul>
   </div>

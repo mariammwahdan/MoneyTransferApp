@@ -10,23 +10,39 @@
             started in minutes.
           </p>
           <div class="buttons mt-5">
-            <app-btn [label]="'Create An Account'" routerLink="/register"
-              [ngClass]="{ hidden: _Nav.isLoggedIn() }"></app-btn>
-            <app-btn [label]="'Transfer Now'" routerLink="/transferMoney"
-              [ngClass]="{ hidden: !_Nav.isLoggedIn() }"></app-btn>
+            <app-btn
+              [label]="'Create An Account'"
+              routerLink="/register"
+              [ngClass]="{ hidden: _Nav.isLoggedIn() }"
+            ></app-btn>
+            <app-btn
+              [label]="'Transfer Now'"
+              routerLink="/transferMoney"
+              [ngClass]="{ hidden: !_Nav.isLoggedIn() }"
+            ></app-btn>
           </div>
         </div>
       </div>
 
       <div class="col-lg-6 w-auto">
         <div class="send-money-box card mt-4">
-          <div class="balance-box bg-pink px-3 py-1 rounded-3 mb-3" [ngClass]="{ hidden: !_Nav.isLoggedIn() }">
+          <div
+            class="balance-box bg-pink px-3 py-1 rounded-3 mb-3"
+            [ngClass]="{ hidden: !_Nav.isLoggedIn() }"
+          >
             <p class="text-main-dark">Current Balance</p>
-            <h2 class="text-main-light fw-semibold">{{customerBalance}}EGP</h2>
+            <h2 class="text-main-light fw-semibold">
+              {{ customerBalance }}EGP
+            </h2>
           </div>
           <form [formGroup]="amountForm" (ngSubmit)="handleContinueBalance()">
             <label for="amount">Send Amount</label>
-            <input type="number" id="amount" formControlName="amount" />
+            <input
+              type="number"
+              id="amount"
+              formControlName="amount"
+              placeholder="1000"
+            />
             <p class="delivery-time">Delivery Time: <span>By May 20th</span></p>
             <app-btn [label]="'Continue'" [largeBtn]="true"></app-btn>
           </form>

@@ -20,8 +20,6 @@ $primary-gray: #898886;
   color: $primary-gray;
 }
 
-
-
 .step-container {
   cursor: pointer;
 
@@ -40,17 +38,16 @@ $primary-gray: #898886;
 
 .active-step,
 .first-step {
-  border-color: #871E35;
-  color: #871E35;
-
+  border-color: #871e35;
+  color: #871e35;
 }
 
 .first-step-line {
-  background-color: #871E35;
+  background-color: #871e35;
 }
 
 .active-step-title {
-  color: #24221E;
+  color: #24221e;
 }
 
 .transfer-container {

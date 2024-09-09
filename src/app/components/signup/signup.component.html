@@ -1,10 +1,21 @@
 <div class="header">
   <div class="container d-flex justify-content-between align-items-center py-5">
     <h1 class="fw-semibold fs-2">Speedo Transfer</h1>
-    <a routerLink="/home" class="text-black"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.51562 22.4876L12.0016 12.0016L22.4876 22.4876M22.4876 1.51562L11.9996 12.0016L1.51562 1.51562"
-          stroke="#24221E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <a routerLink="/home" class="text-black"
+      ><svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.51562 22.4876L12.0016 12.0016L22.4876 22.4876M22.4876 1.51562L11.9996 12.0016L1.51562 1.51562"
+          stroke="#24221E"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
     </a>
   </div>
@@ -19,17 +30,20 @@
     <form [formGroup]="registerForm" (ngSubmit)="sendData()">
       <label class="mb-2 mt-3 fs-6">Full name </label>
       <input type="text" formControlName="name" placeholder="Full name" />
-      <app-form-alert [formName]="registerForm" [inputName]="'name'"></app-form-alert>
-
+      <app-form-alert
+        [formName]="registerForm"
+        [inputName]="'name'"
+      ></app-form-alert>
 
       <label for="email" class="mb-2 mt-3 fs-6">Email </label>
       <input type="email" placeholder="Email address" formControlName="email" />
-      <app-form-alert [formName]="registerForm" inputName="email"></app-form-alert>
+      <app-form-alert
+        [formName]="registerForm"
+        inputName="email"
+      ></app-form-alert>
 
       <label for="Country" class="mb-2 mt-3 fs-6">Country </label>
       <div class="custom-select">
-
-
         <select name="user-country" id="user-country" formControlName="country">
           <option class="select-placholder" value="United Kingdom" selected>
             UK
@@ -38,14 +52,29 @@
           <option [value]="country.name">{{ country.name }}</option>
           }
         </select>
-        <span class="dropdown-arrow"><img src="assets/imgs/DRop down.svg" alt="drop down arrow" /></span>
+        <span class="dropdown-arrow"
+          ><img src="assets/imgs/DRop down.svg" alt="drop down arrow"
+        /></span>
       </div>
+      <app-form-alert
+        [formName]="registerForm"
+        [inputName]="'country'"
+      ></app-form-alert>
 
       <label class="mt-3 fs-6">Date Of birth </label>
-      <div class="date-of-birth d-flex justify-content-center align-content-center">
+
+      <div
+        class="date-of-birth d-flex justify-content-center align-content-center"
+      >
         <div class="day-input pe-3">
           <label class="mb-2 mt-2 fs-6">Day </label>
-          <input type="number" placeholder="DD" formControlName="dayOfBirth" />
+          <input
+            type="number"
+            placeholder="DD"
+            formControlName="dayOfBirth"
+            min="1"
+            max="31"
+          />
         </div>
         <div class="month-input pe-3">
           <label class="mb-2 mt-2 fs-6">Month </label>
@@ -58,7 +87,9 @@
               <option [value]="month.num">{{ month.name }}</option>
               }
             </select>
-            <span class="dropdown-arrow"><img src="assets/imgs/DRop down.svg" alt="drop down arrow" /></span>
+            <span class="dropdown-arrow"
+              ><img src="assets/imgs/DRop down.svg" alt="drop down arrow"
+            /></span>
           </div>
         </div>
         <div class="year-input">
@@ -72,30 +103,61 @@
               <option [value]="year">{{ year }}</option>
               }
             </select>
-            <span class="dropdown-arrow"><img src="assets/imgs/DRop down.svg" alt="drop down arrow" /></span>
+            <span class="dropdown-arrow"
+              ><img src="assets/imgs/DRop down.svg" alt="drop down arrow"
+            /></span>
           </div>
         </div>
       </div>
-
+      @if
+      ((registerForm.get('dayOfBirth')?.touched||registerForm.get("monthOfBirth")?.touched||
+      registerForm.get('yearOfBirth')?.touched)&&(registerForm.get('dayOfBirth')?.invalid&&
+      registerForm.get("monthOfBirth")?.invalid&&registerForm.get('yearOfBirth')?.invalid))
+      {
+      <app-form-alert
+        [formName]="registerForm"
+        [inputName]="'monthOfBirth'"
+      ></app-form-alert>
+      }
       <label class="mb-2 mt-3 fs-6">Password </label>
-      <input type="password" placeholder="*********" formControlName="password" />
-      <!-- <app-form-alert [formName]="registerForm" formControlName="password"></app-form-alert> -->
+      <input
+        type="password"
+        placeholder="*********"
+        formControlName="password"
+      />
+      <app-form-alert
+        [formName]="registerForm"
+        [inputName]="'password'"
+      ></app-form-alert>
 
       <label class="mb-2 mt-3 fs-6">Repassword </label>
-      <input type="password" placeholder="*********" class="mb-3" formControlName="rePassword" />
-      <small class="text-muted">The password should be at least eight characters long. To make it
+      <input
+        type="password"
+        placeholder="*********"
+        class="mb-3"
+        formControlName="rePassword"
+      />
+      <app-form-alert
+        [formName]="registerForm"
+        [inputName]="'rePassword'"
+      ></app-form-alert>
+      <small class="text-muted"
+        >The password should be at least eight characters long. To make it
         stronger, use upper and lower case letters, numbers, and symbols like !
-        " ? $ % ^ & )</small>
-
+        " ? $ % ^ & )</small
+      >
 
       <div class="register-btn mt-4">
         <app-btn [label]="'Create Account'" [largeBtn]="true"></app-btn>
       </div>
 
-
       <p class="text-muted mt-4 mb-0">
         Already have an account?
-        <a class="text-decoration-underline text-main-light cursor-pointer" routerLink="/login">Login</a>
+        <a
+          class="text-decoration-underline text-main-light cursor-pointer"
+          routerLink="/login"
+          >Login</a
+        >
       </p>
     </form>
   </div>

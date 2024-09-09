@@ -8,7 +8,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [BtnComponent, NgClass, RouterLink, ReactiveFormsModule,],
+  imports: [BtnComponent, NgClass, RouterLink, ReactiveFormsModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -17,7 +17,12 @@ export class HeaderComponent {
   customer!: Customer;
   customerAccount!: Account;
   customerBalance: any;
+  amountForm = new FormGroup({
+    amount: new FormControl(null),
+    // handle validation of amount < balance
+  });
   private readonly _Router = inject(Router);
+
   constructor(public _Nav: AuthService) {
     // this.amountForm.get('amount')?.setValue('1000')
     this.customerAccount = {
@@ -31,7 +36,6 @@ export class HeaderComponent {
       active: true,
       createdAt: 'string',
       updatedAt: 'string',
-
     };
     this.customer = {
       id: 7777777777,
@@ -44,26 +48,19 @@ export class HeaderComponent {
       createdAt: 'string',
       updatedAt: 'string',
       accounts: [this.customerAccount],
-    }
+    };
 
     this.customerBalance = this.customer.accounts[0].balance;
-    console.log(this.customerBalance);
+    //console.log(this.customerBalance);
     // this.amountForm.get('amount')?.setValue(this.headerAmountInput)
-    this.amountForm.get('amount')?.setValue(this.headerAmountInput)
+    //this.amountForm.get('amount')?.setValue(this.headerAmountInput);
   }
 
-  amountForm = new FormGroup({
-    amount: new FormControl(null),
-    // handle validation of amount < balance 
-  })
-
-
-
   handleContinueBalance() {
-    let sendAmount: any = this.amountForm.get('amount')?.value
-    localStorage.setItem('sendingAmount', sendAmount.toString())
-    this.amountForm.get('amount')?.setValue(this.headerAmountInput)
-    this.headerAmountInput = Number(localStorage.getItem('sendingAmount'))
+    let sendAmount: any = this.amountForm.get('amount')?.value;
+    localStorage.setItem('sendingAmount', sendAmount.toString());
+    this.amountForm.get('amount')?.setValue(this.headerAmountInput);
+    this.headerAmountInput = Number(localStorage.getItem('sendingAmount'));
 
     if (!this._Nav.isLoggedIn()) {
       this._Router.navigate(['/login']);
@@ -71,9 +68,8 @@ export class HeaderComponent {
       // this.amountForm.get('amount')?.setValue(this.headerAmountInput)
     } else {
       console.log(sendAmount);
-      this._Router.navigate(['/transferMoney/Amount'])
-      this.amountForm.get('amount')?.setValue(this.headerAmountInput)
+      this.amountForm.get('amount')?.setValue(this.headerAmountInput);
+      this._Router.navigate(['/transferMoney/Amount']);
     }
   }
-
 }
