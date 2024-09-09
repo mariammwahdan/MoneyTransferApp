@@ -1,0 +1,28 @@
+@if (formName.get(formControlName)?.errors
+&&(formName.get(formControlName)?.touched||formName.get(formControlName)?.dirty)){
+<div class="text-danger">
+    <ul class="m-0 list-unstyled">
+        @if (formName.get(formControlName)?.getError('required')) {
+        <li>Input is required</li>
+        }
+        @if (formName.get(formControlName)?.getError('minlength')) {
+        <li>Input must be at least 2 character long.</li>
+        }
+        @if (formName.get(formControlName)?.getError('maxlength')) {
+        <li>Input must not exceed 20 characters.</li>
+        }
+        @if (formName.get(formControlName)?.getError('email')) {
+        <li>Please enter a valid email address</li>
+        }
+        @if (formName.get(formControlName)?.getError('pattern')) {
+        <li>Custom field should match the pattern</li>
+        }
+    </ul>
+</div>
+}@else if (formName.getError('mismatch') && formName.get(formControlName)?.touched &&formControlName=='rePassword') {
+<div class="text-danger">
+    <ul class="m-0 list-unstyled">
+        <li>Custom field should match the pattern</li>
+    </ul>
+</div>
+}
