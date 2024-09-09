@@ -11,19 +11,28 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HelpPageComponent } from './components/help-page/help-page.component';
 import { Error404Component } from './components/error-404/error-404.component';
 import { SettingProfileComponent } from './components/setting-profile/setting-profile.component';
+import { TransferAmountComponent } from './components/transfer-amount/transfer-amount.component';
+import { TransferConfirmationComponent } from './components/transfer-confirmation/transfer-confirmation.component';
+import { ThePaymentComponent } from './components/the-payment/the-payment.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'transferMoney', component: MoneyTransferComponent },
   {
-    path: 'myAccount',
-    component: UserAccountComponent,
-    title: 'My Account',
+    path: 'transferMoney', component: MoneyTransferComponent,
+    children: [
+      { path: '', redirectTo: 'Amount', pathMatch: 'full' },
+      { path: 'Amount', component: TransferAmountComponent },
+      { path: 'Confirmation', component: TransferConfirmationComponent },
+      { path: 'Payment', component: ThePaymentComponent },
+    ]
+  },
+  {
+    path: 'myAccount', component: UserAccountComponent, title: "My Account",
     children: [
       { path: '', redirectTo: 'myprofile', pathMatch: 'full' },
       { path: 'myprofile', component: UserProfileComponent },
-      { path: 'payment', component: PaymentComponent },
+      { path: 'payment', component: ThePaymentComponent },
       {
         path: 'setting',
         component: SettingComponent,
