@@ -19,18 +19,18 @@
     <form [formGroup]="registerForm" (ngSubmit)="sendData()">
       <label class="mb-2 mt-3 fs-6">Full name </label>
       <input type="text" formControlName="name" placeholder="Full name" />
-      <app-form-alert [formName]="registerForm" formControlName="name"></app-form-alert>
+      <app-form-alert [formName]="registerForm" [inputName]="'name'"></app-form-alert>
 
 
       <label for="email" class="mb-2 mt-3 fs-6">Email </label>
       <input type="email" placeholder="Email address" formControlName="email" />
-      <app-form-alert [formName]="registerForm" formControlName="email"></app-form-alert>
+      <app-form-alert [formName]="registerForm" inputName="email"></app-form-alert>
 
       <label for="Country" class="mb-2 mt-3 fs-6">Country </label>
       <div class="custom-select">
 
 
-        <select name="user-country" id="user-country">
+        <select name="user-country" id="user-country" formControlName="country">
           <option class="select-placholder" value="United Kingdom" selected>
             UK
           </option>
@@ -41,22 +41,21 @@
         <span class="dropdown-arrow"><img src="assets/imgs/DRop down.svg" alt="drop down arrow" /></span>
       </div>
 
-
       <label class="mt-3 fs-6">Date Of birth </label>
       <div class="date-of-birth d-flex justify-content-center align-content-center">
         <div class="day-input pe-3">
           <label class="mb-2 mt-2 fs-6">Day </label>
-          <input type="day" placeholder="DD" />
+          <input type="number" placeholder="DD" formControlName="dayOfBirth" />
         </div>
         <div class="month-input pe-3">
           <label class="mb-2 mt-2 fs-6">Month </label>
           <div class="custom-select">
-            <select name="month" id="month">
+            <select name="month" id="month" formControlName="monthOfBirth">
               <option class="select-placholder" value="month" selected hidden>
                 Month
               </option>
               @for (month of months; track $index) {
-              <option [value]="month.name">{{ month.name }}</option>
+              <option [value]="month.num">{{ month.name }}</option>
               }
             </select>
             <span class="dropdown-arrow"><img src="assets/imgs/DRop down.svg" alt="drop down arrow" /></span>
@@ -65,7 +64,7 @@
         <div class="year-input">
           <label class="mb-2 mt-2 fs-6">Year </label>
           <div class="custom-select">
-            <select name="year" id="year">
+            <select name="year" id="year" formControlName="yearOfBirth">
               <option class="select-placholder" value="year" selected hidden>
                 YYYY
               </option>

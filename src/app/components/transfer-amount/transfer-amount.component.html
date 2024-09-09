@@ -1,9 +1,9 @@
 <div class="transfer-amount-container">
   <div class="d-flex flex-column justify-content-center align-items-center">
     <div class="text-gray amount-title">How much are you sending?</div>
-    <form>
+    <form [formGroup]="myAccountAmountForm" (ngSubmit)="sendData()">
       <label for="amount" class="my-2">Amount</label>
-      <input type="number" id="amount" value="1000" />
+      <input type="number" id="amount" formControlName="amount" />
       <div class="recipient-info d-flex align-items-center justify-content-between w-100 my-2">
         <span>Recipient Information</span>
         <span class="text-main-light d-flex align-items-center" data-bs-target="#favouriteModal"
@@ -16,10 +16,10 @@
           </svg>
         </span>
       </div>
-      <label for="amount" class="my-3 fw-medium">Recipient Name</label>
-      <input type="text" id="amount" />
-      <label for="amount" class="my-3 fw-medium">Recipient Account</label>
-      <input type="number" id="amount" class="mb-3" />
+      <label for="recipientName" class="my-3 fw-medium">Recipient Name</label>
+      <input type="text" id="recipientName" formControlName="recipientName" />
+      <label for="recipientAccount" class="my-3 fw-medium">Recipient Account</label>
+      <input type="number" id="recipientAccount" class="mb-3" formControlName="recipientAccount" />
       <app-btn [largeBtn]="true" [label]="'Continue'" [dark]="true" routerLink="/transferMoney/confirm">
       </app-btn>
     </form>

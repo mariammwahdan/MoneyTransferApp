@@ -1,25 +1,25 @@
-@if (formName.get(formControlName)?.errors
-&&(formName.get(formControlName)?.touched||formName.get(formControlName)?.dirty)){
+@if (formName.get(inputName)?.errors
+&&(formName.get(inputName)?.touched||formName.get(inputName)?.dirty)){
 <div class="text-danger">
     <ul class="m-0 list-unstyled">
-        @if (formName.get(formControlName)?.getError('required')) {
+        @if (formName.get(inputName)?.getError('required')) {
         <li>Input is required</li>
         }
-        @if (formName.get(formControlName)?.getError('minlength')) {
+        @if (formName.get(inputName)?.getError('minlength')) {
         <li>Input must be at least 2 character long.</li>
         }
-        @if (formName.get(formControlName)?.getError('maxlength')) {
+        @if (formName.get(inputName)?.getError('maxlength')) {
         <li>Input must not exceed 20 characters.</li>
         }
-        @if (formName.get(formControlName)?.getError('email')) {
+        @if (formName.get(inputName)?.getError('email')) {
         <li>Please enter a valid email address</li>
         }
-        @if (formName.get(formControlName)?.getError('pattern')) {
+        @if (formName.get(inputName)?.getError('pattern')) {
         <li>Custom field should match the pattern</li>
         }
     </ul>
 </div>
-}@else if (formName.getError('mismatch') && formName.get(formControlName)?.touched &&formControlName=='rePassword') {
+}@else if (formName.getError('mismatch') && formName.get(inputName)?.touched &&inputName=='rePassword') {
 <div class="text-danger">
     <ul class="m-0 list-unstyled">
         <li>Custom field should match the pattern</li>

@@ -8,11 +8,15 @@ import { User } from '../interfaces/user';
   providedIn: 'root'
 })
 export class TestAuthService {
-  // private readonly _HttpClient = inject(HttpClient);
+  private readonly _HttpClient = inject(HttpClient);
   constructor() { }
 
-  // register = (user: any): Observable<any> => {
-  //   return this._HttpClient.post(baseUrl + '/api/auth/register', user)
-  // }
+  register = (user: any): Observable<any> => {
+    return this._HttpClient.post(baseUrl + '/api/auth/register', user)
+  }
+
+  login = (user: any): Observable<any> => {
+    return this._HttpClient.post(baseUrl + '/api/auth/login', user)
+  }
 
 }

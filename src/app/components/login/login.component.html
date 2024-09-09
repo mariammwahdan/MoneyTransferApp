@@ -5,7 +5,7 @@
         xmlns="http://www.w3.org/2000/svg">
         <path d="M1.51562 22.4876L12.0016 12.0016L22.4876 22.4876M22.4876 1.51562L11.9996 12.0016L1.51562 1.51562"
           stroke="#24221E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-      </svg> 
+      </svg>
     </a>
   </div>
 </div>
@@ -18,14 +18,14 @@
     <p class="text-muted">
       Welcome back.Login to your account
     </p>
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="sendData()">
 
       <label for="" class="my-3 fs-6">Your email address</label>
-      <input type="email" placeholder="Email@gmail.com" />
+      <input type="email" placeholder="Email@gmail.com" formControlName="email" />
 
 
       <label for="" class="my-3 fs-6">Password </label>
-      <input type="password" placeholder="*********" />
+      <input type="password" placeholder="*********" formControlName="password" />
 
 
       <div class="register-btn mt-4">

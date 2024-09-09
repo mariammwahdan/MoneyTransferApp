@@ -10,6 +10,6 @@ import { FormGroup } from '@angular/forms';
 })
 export class FormAlertComponent {
   @Input() formName!: FormGroup;
-  @Input() formControlName!: string;
+  @Input() inputName!: string;
 
 }
