@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,20 +8,25 @@ import { BaseUrl } from '../environment/BaseUrl';
 })
 export class UpdateCustomerService {
   private readonly _HttpClient = inject(HttpClient);
+  email = localStorage.getItem('email');
   constructor() {}
-  updatedData = {
-    name: 'Updated Name',
-    email: 'updated@example.com',
-  };
-  updateData() {
-    const apiUrl = '/api/customer/update'; // Your API endpoint
-    this._HttpClient.put(apiUrl, this.updatedData).subscribe(
-      (response) => {
-        console.log('Success:', response);
-      },
-      (error) => {
-        console.error('Error:', error);
+
+  updateData = (userInfo: {
+    name: string;
+    email: string;
+    phoneNumber: string;
+  }): Observable<any> => {
+    const token = 'Bearer ' + localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: token,
+    });
+    return this._HttpClient.put(
+      BaseUrl + `api/customer/update/${this.email} `,
+      userInfo,
+      {
+        headers,
       }
     );
-  }
+  };
 }

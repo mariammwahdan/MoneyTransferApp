@@ -10,9 +10,13 @@ import { TestAuthService } from '../../core/services/test-auth.service';
 })
 export class UserProfileComponent {
   private readonly _TestAuthService = inject(TestAuthService);
-  name = this._TestAuthService.custmoer[0].name
-  email = this._TestAuthService.custmoer[0].email
-  gender = this._TestAuthService.custmoer[0].gender
-  phoneNum = this._TestAuthService.custmoer[0].phoneNumber
-  balance = this._TestAuthService.custmoer[0].accounts[0].balance;
+  balance = localStorage.getItem('balance');
+  name = localStorage.getItem('name');
+  email = localStorage.getItem('email');
+
+  // name = this._TestAuthService.custmoer[0].name;
+  // email = this._TestAuthService.custmoer[0].email;
+  gender = this._TestAuthService.custmoer[0].gender;
+  phoneNum = this._TestAuthService.custmoer[0].phoneNumber;
+  // balance = this._TestAuthService.custmoer[0].accounts[0].balance;
 }
