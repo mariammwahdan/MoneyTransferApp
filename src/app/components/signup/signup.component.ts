@@ -45,6 +45,7 @@ export class SignupComponent implements OnInit {
   years: any = years;
   private readonly _TestAuthService = inject(TestAuthService);
   private readonly _Router = inject(Router);
+
   constructor(public _Nav: AuthService) {
     const currentYear = new Date().getFullYear();
     console.log(currentYear);
@@ -96,9 +97,8 @@ export class SignupComponent implements OnInit {
       '-' +
       this.registerForm.get('dayOfBirth')?.value;
 
-    console.log(this.registerForm.get('yearOfBirth'));
-
-    console.log(dateOfBirth);
+    // console.log(this.registerForm.get('yearOfBirth'));
+    // console.log(dateOfBirth);
     return dateOfBirth;
   }
 
@@ -119,12 +119,12 @@ export class SignupComponent implements OnInit {
             this._Router.navigate(['/login']);
           }
           console.log(res);
-          console.log(registerFormValue);
+          // console.log(registerFormValue);
         },
         error: (err) => {
           console.log(err);
-          console.log(registerFormValue);
-          console.log(this.registerForm.value);
+          // console.log(registerFormValue);
+          // console.log(this.registerForm.value);
 
           if (
             err.message ==
@@ -138,6 +138,6 @@ export class SignupComponent implements OnInit {
       });
     }
 
-    console.log(this.users);
+    // console.log(this.users);
   }
 }

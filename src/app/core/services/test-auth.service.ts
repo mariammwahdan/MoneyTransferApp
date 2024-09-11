@@ -43,7 +43,7 @@ export class TestAuthService {
   ];
 
   private readonly _HttpClient = inject(HttpClient);
-  constructor() {}
+  constructor() { }
 
   register = (user: any): Observable<any> => {
     return this._HttpClient.post(BaseUrl + '/api/auth/register', user);
@@ -52,4 +52,10 @@ export class TestAuthService {
   login = (user: any): Observable<any> => {
     return this._HttpClient.post(BaseUrl + '/api/auth/login', user);
   };
+
+  updateByEmail = (user: any): Observable<any> => {
+    return this._HttpClient.put(BaseUrl + '/api/auth/login', user);
+  };
+
+
 }

@@ -37,10 +37,10 @@ export class AppComponent {
   userInactive: Subject<any> = new Subject();
 
   private readonly _AuthService = inject(AuthService);
-  private readonly _Router= inject(Router);
+  private readonly _Router = inject(Router);
 
   constructor() {
-    this.setTimeout();
+    // this.setTimeout();
     this.userInactive.subscribe(() =>
       console.log('user has been inactive for 3s')
     );
@@ -59,6 +59,6 @@ export class AppComponent {
 
   @HostListener('window:mousemove') refreshUserState() {
     clearTimeout(this.userActivity);
-    this.setTimeout();
+    // this.setTimeout();
   }
 }

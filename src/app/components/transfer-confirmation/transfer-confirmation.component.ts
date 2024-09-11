@@ -10,10 +10,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './transfer-confirmation.component.scss',
 })
 export class TransferConfirmationComponent {
+  userName;
   recipientName;
   recipientAcc;
+  userAccNum;
   amount;
   constructor() {
+    this.userName = localStorage.getItem('name');
+    this.userAccNum = localStorage.getItem('MyAccNum');
     this.recipientName = localStorage.getItem('recipientName');
     this.recipientAcc = localStorage.getItem('recipientAcc');
     this.amount = localStorage.getItem('amount');

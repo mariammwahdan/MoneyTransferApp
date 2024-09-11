@@ -1,208 +1,108 @@
 <div class="transfer-amount-container">
   <div class="steps d-flex justify-content-center align-items-center">
-    <div
-      class="row step-container active-step d-flex flex-column gap-4 align-items-center"
-      routerLinkActive="active-step"
-    >
+    <div class="row step-container active-step d-flex flex-column gap-4 align-items-center"
+      routerLinkActive="active-step">
       <div class="contain-title d-flex align-items-center">
-        <div
-          class="step first-step col-md-6 mx-2"
-          routerLinkActive="active-step"
-          routerLink="Amount"
-        >
+        <div class="step first-step col-md-6 mx-2" routerLinkActive="active-step" routerLink="Amount">
           01
         </div>
         <div class="step-line first-step-line col-md-6"></div>
       </div>
-      <span routerLinkActive="active-step-title" class="text-black"
-        >Amount</span
-      >
+      <span routerLinkActive="active-step-title" class="text-black">Amount</span>
     </div>
-    <div
-      class="row step-container active-step d-flex flex-column gap-4 align-items-center"
-    >
-      <div
-        class="contain-title d-flex align-items-center"
-        routerLinkActive="active-step"
-      >
+    <div class="row step-container active-step d-flex flex-column gap-4 align-items-center">
+      <div class="contain-title d-flex align-items-center" routerLinkActive="active-step">
         <div class="step col-md-6 mx-2" routerLinkActive="active-step">02</div>
         <div class="step-line col-md-6"></div>
       </div>
-      <span routerLinkActive="active-step-title" class="text-muted"
-        >Confirmation</span
-      >
+      <span routerLinkActive="active-step-title" class="text-muted">Confirmation</span>
     </div>
-    <div
-      class="row step-container active-step d-flex flex-column gap-4 align-items-center"
-    >
-      <div
-        class="contain-title d-flex mx-2 align-items-center gap-3"
-        routerLinkActive="active-step"
-      >
+    <div class="row step-container active-step d-flex flex-column gap-4 align-items-center">
+      <div class="contain-title d-flex mx-2 align-items-center gap-3" routerLinkActive="active-step">
         <div class="step col-md-6" routerLinkActive="active-step">03</div>
       </div>
-      <span routerLinkActive="active-step-title" class="text-muted"
-        >Payment</span
-      >
+      <span routerLinkActive="active-step-title" class="text-muted">Payment</span>
     </div>
   </div>
   <div class="">
     <div class="text-gray amount-title">How much are you sending?</div>
     <form [formGroup]="myAccountAmountForm" (ngSubmit)="sendData()">
       <label for="amount" class="my-2">Amount</label>
-      <input
-        type="number"
-        id="amount"
-        formControlName="amount"
-        placeholder="1000"
-        min="1"
-      />
-      <app-form-alert
-        [formName]="myAccountAmountForm"
-        [inputName]="'amount'"
-      ></app-form-alert>
-      <div
-        class="recipient-info d-flex align-items-center justify-content-between w-100 my-2"
-      >
+      <input type="number" id="amount" formControlName="amount" placeholder="1000" min="1" />
+      <app-form-alert [formName]="myAccountAmountForm" [inputName]="'amount'"></app-form-alert>
+      <div class="recipient-info d-flex align-items-center justify-content-between w-100 my-2">
         <span>Recipient Information</span>
-        <span
-          class="text-main-light d-flex align-items-center"
-          data-bs-target="#favouriteModal"
-          data-bs-toggle="modal"
-          ><i class="fa-regular fa-star me-2"></i>
+        <span class="text-main-light d-flex align-items-center" data-bs-target="#favouriteModal"
+          (click)="getAllFavorite()" data-bs-toggle="modal"><i class="fa-regular fa-star me-2"></i>
           Favourite
-          <svg
-            width="6"
-            height="10"
-            viewBox="0 0 6 10"
-            fill="none"
-            class="ms-2"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg width="6" height="10" viewBox="0 0 6 10" fill="none" class="ms-2" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M3.5282 5.00042L0.23487 1.71179L1.1682 0.766472L5.4082 5.00042L1.1682 9.23438L0.23487 8.28906L3.5282 5.00042Z"
-              fill="#871E35"
-            />
+              fill="#871E35" />
           </svg>
         </span>
       </div>
       <label for="recipientName" class="my-3 fw-medium">Recipient Name</label>
       <input type="text" id="recipientName" formControlName="recipientName" />
-      <app-form-alert
-        [formName]="myAccountAmountForm"
-        [inputName]="'recipientName'"
-      ></app-form-alert>
-      <label for="recipientAccount" class="my-3 fw-medium"
-        >Recipient Account</label
-      >
-      <input
-        type="number"
-        id="recipientAccount"
-        formControlName="recipientAccount"
-      />
-      <app-form-alert
-        [formName]="myAccountAmountForm"
-        [inputName]="'recipientAccount'"
-      ></app-form-alert>
+      <app-form-alert [formName]="myAccountAmountForm" [inputName]="'recipientName'"></app-form-alert>
+      <label for="recipientAccount" class="my-3 fw-medium">Recipient Account</label>
+      <input type="number" id="recipientAccount" formControlName="recipientAccount" />
+      <app-form-alert [formName]="myAccountAmountForm" [inputName]="'recipientAccount'"></app-form-alert>
       <app-form-alert [formName]="myAccountAmountForm"></app-form-alert>
       <p *ngIf="showChild" class="text-danger fs-6 fw-medium mt-2">
         Please fill all inputs
       </p>
       <div class="mt-4">
-        <app-btn
-          [largeBtn]="true"
-          [label]="'Continue'"
-          [dark]="true"
-          routerLink="/transferMoney/confirm"
-          (click)="toggleChild()"
-        >
+        <app-btn [largeBtn]="true" [label]="'Continue'" [dark]="true" routerLink="/transferMoney/confirm"
+          (click)="toggleChild()">
         </app-btn>
       </div>
     </form>
   </div>
 </div>
 <!--Favorite  Modal -->
-<div
-  class="modal fade"
-  id="favouriteModal"
-  tabindex="-1"
-  aria-labelledby="favouriteModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="favouriteModal" tabindex="-1" aria-labelledby="favouriteModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <!-- close button -->
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body mt-2">
-        <h5 class="mb-4 text-light-main-color" id="favouriteModalLabel">
+        <h5 class="mb-4 text-light-main-color" id="favouriteModalLabel" (click)="getAllFavorite()">
           <i class="fa-regular fa-star me-2"></i>
           Favourite
-          <svg
-            width="6"
-            height="10"
-            viewBox="0 0 6 10"
-            fill="none"
-            class="ms-2"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg width="6" height="10" viewBox="0 0 6 10" fill="none" class="ms-2" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M3.5282 5.00042L0.23487 1.71179L1.1682 0.766472L5.4082 5.00042L1.1682 9.23438L0.23487 8.28906L3.5282 5.00042Z"
-              fill="#871E35"
-            />
+              fill="#871E35" />
           </svg>
         </h5>
+        @for (item of favoriteItems; track $index) {
+        <div class="favorite-item d-flex justify-content-between align-items-center" [ngClass]="{ closing: hide }">
+          <div class="d-flex gap-md-4 gap-sm-1 align-items-center">
+            <div class="bankk-icon bg-gray-light p-2">
+              <svg width="46" height="44" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M29.5627 5.17245L49.396 16.2558C49.9782 16.5464 50.4679 16.9937 50.81 17.5472C51.1521 18.1008 51.3331 18.7387 51.3327 19.3894V22.7494C51.3327 24.3594 50.026 25.6661 48.416 25.6661H46.666V44.3328H48.9994C49.6182 44.3328 50.2117 44.5786 50.6493 45.0162C51.0869 45.4538 51.3327 46.0473 51.3327 46.6661C51.3327 47.285 51.0869 47.8784 50.6493 48.316C50.2117 48.7536 49.6182 48.9994 48.9994 48.9994H6.99935C6.38051 48.9994 5.78702 48.7536 5.34943 48.316C4.91185 47.8784 4.66602 47.285 4.66602 46.6661C4.66602 46.0473 4.91185 45.4538 5.34943 45.0162C5.78702 44.5786 6.38051 44.3328 6.99935 44.3328H9.33268V25.6661H7.58268C5.97268 25.6661 4.66602 24.3594 4.66602 22.7494V19.3894C4.66602 18.1714 5.29602 17.0514 6.31335 16.4168L26.4337 5.17245C26.9198 4.92932 27.4558 4.80273 27.9994 4.80273C28.5429 4.80273 29.0766 4.92932 29.5627 5.17245ZM41.9994 25.6661H13.9993V44.3328H20.9994V30.3328H25.666V44.3328H30.3327V30.3328H34.9994V44.3328H41.9994V25.6661ZM27.9994 9.60812L9.33268 20.1081V20.9994H46.666V20.1081L27.9994 9.60812ZM27.9994 13.9994C28.6182 13.9994 29.2117 14.2453 29.6493 14.6829C30.0869 15.1205 30.3327 15.7139 30.3327 16.3328C30.3327 16.9516 30.0869 17.5451 29.6493 17.9827C29.2117 18.4203 28.6182 18.6661 27.9994 18.6661C27.3805 18.6661 26.787 18.4203 26.3494 17.9827C25.9119 17.5451 25.666 16.9516 25.666 16.3328C25.666 15.7139 25.9119 15.1205 26.3494 14.6829C26.787 14.2453 27.3805 13.9994 27.9994 13.9994Z"
+                  fill="#3C3A37" />
+              </svg>
+            </div>
+            <div>
+              <div class="fav-name my-3">{{item.recipientName}}</div>
+              <div class="fav-number">Account {{item.accountNumber}}</div>
+            </div>
+          </div>
+          <div class="mx-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+              (click)="deleteItem()">
+              <path d="M1.00977 14.9911L8.00043 8.00043L14.9911 14.9911M14.9911 1.00977L7.9991 8.00043L1.00977 1.00977"
+                stroke="#24221E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+        }
 
-        <div class="favorite-item">
-          <div class="d-flex gap-md-4 gap-sm-1 align-items-center">
-            <div class="bankk-icon bg-gray-light p-2">
-              <svg
-                width="46"
-                height="44"
-                viewBox="0 0 56 56"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M29.5627 5.17245L49.396 16.2558C49.9782 16.5464 50.4679 16.9937 50.81 17.5472C51.1521 18.1008 51.3331 18.7387 51.3327 19.3894V22.7494C51.3327 24.3594 50.026 25.6661 48.416 25.6661H46.666V44.3328H48.9994C49.6182 44.3328 50.2117 44.5786 50.6493 45.0162C51.0869 45.4538 51.3327 46.0473 51.3327 46.6661C51.3327 47.285 51.0869 47.8784 50.6493 48.316C50.2117 48.7536 49.6182 48.9994 48.9994 48.9994H6.99935C6.38051 48.9994 5.78702 48.7536 5.34943 48.316C4.91185 47.8784 4.66602 47.285 4.66602 46.6661C4.66602 46.0473 4.91185 45.4538 5.34943 45.0162C5.78702 44.5786 6.38051 44.3328 6.99935 44.3328H9.33268V25.6661H7.58268C5.97268 25.6661 4.66602 24.3594 4.66602 22.7494V19.3894C4.66602 18.1714 5.29602 17.0514 6.31335 16.4168L26.4337 5.17245C26.9198 4.92932 27.4558 4.80273 27.9994 4.80273C28.5429 4.80273 29.0766 4.92932 29.5627 5.17245ZM41.9994 25.6661H13.9993V44.3328H20.9994V30.3328H25.666V44.3328H30.3327V30.3328H34.9994V44.3328H41.9994V25.6661ZM27.9994 9.60812L9.33268 20.1081V20.9994H46.666V20.1081L27.9994 9.60812ZM27.9994 13.9994C28.6182 13.9994 29.2117 14.2453 29.6493 14.6829C30.0869 15.1205 30.3327 15.7139 30.3327 16.3328C30.3327 16.9516 30.0869 17.5451 29.6493 17.9827C29.2117 18.4203 28.6182 18.6661 27.9994 18.6661C27.3805 18.6661 26.787 18.4203 26.3494 17.9827C25.9119 17.5451 25.666 16.9516 25.666 16.3328C25.666 15.7139 25.9119 15.1205 26.3494 14.6829C26.787 14.2453 27.3805 13.9994 27.9994 13.9994Z"
-                  fill="#3C3A37"
-                />
-              </svg>
-            </div>
-            <div>
-              <div class="fav-name my-3">Asmaa Dosuky</div>
-              <div class="fav-number">Account xxxx7890</div>
-            </div>
-          </div>
-        </div>
-        <div class="favorite-item">
-          <div class="d-flex gap-md-4 gap-sm-1 align-items-center">
-            <div class="bankk-icon bg-gray-light p-2">
-              <svg
-                width="46"
-                height="44"
-                viewBox="0 0 56 56"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M29.5627 5.17245L49.396 16.2558C49.9782 16.5464 50.4679 16.9937 50.81 17.5472C51.1521 18.1008 51.3331 18.7387 51.3327 19.3894V22.7494C51.3327 24.3594 50.026 25.6661 48.416 25.6661H46.666V44.3328H48.9994C49.6182 44.3328 50.2117 44.5786 50.6493 45.0162C51.0869 45.4538 51.3327 46.0473 51.3327 46.6661C51.3327 47.285 51.0869 47.8784 50.6493 48.316C50.2117 48.7536 49.6182 48.9994 48.9994 48.9994H6.99935C6.38051 48.9994 5.78702 48.7536 5.34943 48.316C4.91185 47.8784 4.66602 47.285 4.66602 46.6661C4.66602 46.0473 4.91185 45.4538 5.34943 45.0162C5.78702 44.5786 6.38051 44.3328 6.99935 44.3328H9.33268V25.6661H7.58268C5.97268 25.6661 4.66602 24.3594 4.66602 22.7494V19.3894C4.66602 18.1714 5.29602 17.0514 6.31335 16.4168L26.4337 5.17245C26.9198 4.92932 27.4558 4.80273 27.9994 4.80273C28.5429 4.80273 29.0766 4.92932 29.5627 5.17245ZM41.9994 25.6661H13.9993V44.3328H20.9994V30.3328H25.666V44.3328H30.3327V30.3328H34.9994V44.3328H41.9994V25.6661ZM27.9994 9.60812L9.33268 20.1081V20.9994H46.666V20.1081L27.9994 9.60812ZM27.9994 13.9994C28.6182 13.9994 29.2117 14.2453 29.6493 14.6829C30.0869 15.1205 30.3327 15.7139 30.3327 16.3328C30.3327 16.9516 30.0869 17.5451 29.6493 17.9827C29.2117 18.4203 28.6182 18.6661 27.9994 18.6661C27.3805 18.6661 26.787 18.4203 26.3494 17.9827C25.9119 17.5451 25.666 16.9516 25.666 16.3328C25.666 15.7139 25.9119 15.1205 26.3494 14.6829C26.787 14.2453 27.3805 13.9994 27.9994 13.9994Z"
-                  fill="#3C3A37"
-                />
-              </svg>
-            </div>
-            <div>
-              <div class="fav-name my-3">Asmaa Dosuky</div>
-              <div class="fav-number">Account xxxx7890</div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

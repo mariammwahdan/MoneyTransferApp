@@ -8,8 +8,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { FormAlertComponent } from '../../shared/form-alert/form-alert.component';
-import { NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FavouriteService } from '../../core/services/favourite.service';
+import { FavItem } from '../../core/interfaces/favList-interface';
 
 @Component({
   selector: 'app-transfer-amount',
@@ -20,6 +21,8 @@ import { FavouriteService } from '../../core/services/favourite.service';
     ReactiveFormsModule,
     FormAlertComponent,
     NgIf,
+    NgClass,
+    NgFor
   ],
   templateUrl: './transfer-amount.component.html',
   styleUrl: './transfer-amount.component.scss',
@@ -27,8 +30,12 @@ import { FavouriteService } from '../../core/services/favourite.service';
 export class TransferAmountComponent {
   isBtnSubmit: boolean = false;
   private readonly _Router = inject(Router);
-  public  _FavouriteService = inject(FavouriteService);
+  public _FavouriteService = inject(FavouriteService);
   localStorageAmount: any;
+  showChild: boolean = false;
+  hide: boolean = false;
+  favoriteItems: FavItem[] = []
+
   myAccountAmountForm = new FormGroup({
     amount: new FormControl(null, [Validators.required, Validators.min(1)]),
     recipientName: new FormControl(null, [
@@ -40,10 +47,23 @@ export class TransferAmountComponent {
       Validators.minLength(5),
     ]),
   });
+
+  deleteItem() {
+    let id = localStorage.getItem('MyAccId')
+    this._FavouriteService.deleteFromFavorite(id).subscribe({
+      next: (res) => {
+        console.log(res);
+      }, error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+
+
   ngOnInit(): void {
     this.localStorageAmount = Number(localStorage.getItem('sendingAmount')!);
     this.myAccountAmountForm.get('amount')?.setValue(this.localStorageAmount);
-    console.log(this.myAccountAmountForm.get('amount')?.value);
   }
 
   sendData() {
@@ -69,9 +89,22 @@ export class TransferAmountComponent {
       console.log('Form is invalid');
     }
   }
-  showChild: boolean = false;
 
   toggleChild() {
     this.showChild = !this.showChild;
   }
+
+
+  getAllFavorite() {
+    this._FavouriteService.getAllFavorite().subscribe({
+      next: (res) => {
+        this.favoriteItems = res
+        console.log(res);
+
+      }, error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
 }
