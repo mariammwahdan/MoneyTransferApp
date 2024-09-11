@@ -20,7 +20,7 @@ import { signupValidators } from '../../shared/validators/register-validators';
 import { TestAuthService } from '../../core/services/test-auth.service';
 import { FormAlertComponent } from '../../shared/form-alert/form-alert.component';
 import { User } from '../../core/interfaces/user';
-import { log } from 'console';
+
 import { NgClass, NgIf } from '@angular/common';
 
 @Component({

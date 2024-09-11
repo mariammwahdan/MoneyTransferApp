@@ -11,12 +11,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { signupValidators } from '../../shared/validators/register-validators';
-import { User } from '../../core/interfaces/user';
-import { TestAuthService } from '../../core/services/test-auth.service';
-import { Customer } from '../../core/interfaces/customer-interface';
-import { GetUserInfoService } from './../../core/services/get-user-info.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
+import { TestAuthService } from '../../core/services/test-auth.service';
+
+import { GetUserInfoService } from './../../core/services/get-user-info.service';
 
 @Component({
   selector: 'app-login',
@@ -37,10 +35,8 @@ export class LoginComponent implements OnInit {
   private readonly _Router = inject(Router);
   private readonly _TestAuthService = inject(TestAuthService);
   private readonly _GetUserInfoService = inject(GetUserInfoService);
-  // token = '667ghb';
-  // user:User[] = this._TestAuthService.users;
 
-  constructor(public _Nav: AuthService, private jwtHelper: JwtHelperService) {}
+  constructor(public _Nav: AuthService) {}
   loginForm = new FormGroup({
     email: new FormControl(null, signupValidators.email),
     password: new FormControl(null, Validators.required),
@@ -51,16 +47,13 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this._TestAuthService.login(this.loginForm.value).subscribe({
         next: (res) => {
+          console.log(res.customerId);
           if (res.message == 'Login Successful') {
-            // this._Router.navigate([`/home/${res.email}`]);
+            this._Router.navigate([`/home`]);
             localStorage.setItem('token', res.token);
+
             // this.getUserEmail();
-            this.getUser();
-            let token = res.token // Replace with your token storage mechanism
-            if (token) {
-              this.userId = this.jwtHelper.decodeToken(token).sub;
-              console.log(this.userId);
-            }
+            // this.getUser();
           }
           console.log(res);
           console.log(this.loginForm.value);
@@ -71,7 +64,7 @@ export class LoginComponent implements OnInit {
 
           if (
             err.message ==
-            'Http failure response for https://banquemisr-transfer-service.onrender.com/api/auth/register: 500 OK'
+            'Http failure response for https://banquemisr-transfer-service.onrender.com/api/auth/login: 500 OK'
           ) {
             this.loginErrorMsg = ' Invalid Email or Password';
           } else {
@@ -121,23 +114,19 @@ export class LoginComponent implements OnInit {
   //     });
   // }
 
-  getUser(){
+  getUser() {
     console.log('email');
-      this._GetUserInfoService
-        .getUser()
-        .subscribe({
-          next: (res) => {
-            console.log(res)
-          },
-          error: (err) => {
-            console.log(err);
-          },
-        });
+    this._GetUserInfoService.getUser().subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   ngOnInit() {
     this._Nav.hide();
-    
   }
 }
-
