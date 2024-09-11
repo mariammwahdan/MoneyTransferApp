@@ -10,6 +10,7 @@ import {
 import { FormAlertComponent } from '../../shared/form-alert/form-alert.component';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FavouriteService } from '../../core/services/favourite.service';
+import { FavItem } from '../../core/interfaces/favList-interface';
 
 @Component({
   selector: 'app-transfer-amount',
@@ -33,7 +34,7 @@ export class TransferAmountComponent {
   localStorageAmount: any;
   showChild: boolean = false;
   hide: boolean = false;
-  favoriteItems: { recipientName: string | null; recipientAcc: string | null; }[] = this._FavouriteService.favArr;
+  favoriteItems: FavItem[] = []
 
   myAccountAmountForm = new FormGroup({
     amount: new FormControl(null, [Validators.required, Validators.min(1)]),
@@ -47,13 +48,17 @@ export class TransferAmountComponent {
     ]),
   });
 
-  deleteItem(index: number) {
-    this.favoriteItems.splice(index, 1);
-    // Update storage if necessary}
+  deleteItem() {
+    let id = localStorage.getItem('MyAccId')
+    this._FavouriteService.deleteFromFavorite(id).subscribe({
+      next: (res) => {
+        console.log(res);
+      }, error: (err) => {
+        console.log(err);
+      }
+    })
   }
-  addToFav() {
 
-  }
 
 
   ngOnInit(): void {
@@ -88,4 +93,18 @@ export class TransferAmountComponent {
   toggleChild() {
     this.showChild = !this.showChild;
   }
+
+
+  getAllFavorite() {
+    this._FavouriteService.getAllFavorite().subscribe({
+      next: (res) => {
+        this.favoriteItems = res
+        console.log(res);
+
+      }, error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
 }

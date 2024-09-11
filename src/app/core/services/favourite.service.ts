@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BaseUrl } from '../environment/BaseUrl';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -45,14 +45,42 @@ export class FavouriteService {
   }
 
   getAllFavorite = (): Observable<any> => {
-    return this._HttpClient.get(BaseUrl + '/api/favourites ');
+    const token = 'Bearer ' + localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: token,
+    });
+    return this._HttpClient.get(BaseUrl + '/api/favourites', { headers });
   };
 
+
+  // addToFavorite = (recipientInfo: any): Observable<any> => {
+  //   const token = 'Bearer ' + localStorage.getItem('token');
+  //   const header = new Headers({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': token
+  //   });
+  //   const options = {
+  //     headers: header
+  //   }
+  //   return this._HttpClient.post(BaseUrl + '/api/favourites ', {
+  //     recipientInfo: recipientInfo, options
+  //   });
+  // };
   addToFavorite = (recipientInfo: any): Observable<any> => {
-    return this._HttpClient.post(BaseUrl + '/api/favourites ', recipientInfo);
+    const token = 'Bearer ' + localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: token,
+    });
+    return this._HttpClient.post(BaseUrl + '/api/favourites ', recipientInfo, { headers });
   };
-
   deleteFromFavorite = (recipientId: any): Observable<any> => {
-    return this._HttpClient.delete(BaseUrl + `/api/favourites/${recipientId} `);
+    const token = 'Bearer ' + localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: token,
+    });
+    return this._HttpClient.delete(BaseUrl + `/api/favourites/${recipientId} `, { headers });
   };
 }

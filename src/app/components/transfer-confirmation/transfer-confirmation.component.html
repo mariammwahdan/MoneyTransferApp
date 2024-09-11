@@ -1,32 +1,23 @@
 <div class="transfer-confirmation-container">
   <div class="steps d-flex justify-content-center align-items-center">
-    <div
-      class="row step-container active-step d-flex flex-column gap-4 align-items-center"
-      routerLink="/transferMoney/Amount"
-    >
+    <div class="row step-container active-step d-flex flex-column gap-4 align-items-center"
+      routerLink="/transferMoney/Amount">
       <div class="contain-title d-flex align-items-center">
-        <div
-          class="step first-step col-md-6 mx-2"
-          routerLink="/transferMoney/Amount"
-        >
+        <div class="step first-step col-md-6 mx-2" routerLink="/transferMoney/Amount">
           01
         </div>
         <div class="step-line first-step-line col-md-6"></div>
       </div>
       <span class="text-black">Amount</span>
     </div>
-    <div
-      class="row step-container active-step d-flex flex-column gap-4 align-items-center"
-    >
+    <div class="row step-container active-step d-flex flex-column gap-4 align-items-center">
       <div class="contain-title d-flex align-items-center">
         <div class="step col-md-6 mx-2 second-step">02</div>
         <div class="step-line col-md-6"></div>
       </div>
       <span class="text-black">Confirmation</span>
     </div>
-    <div
-      class="row step-container active-step d-flex flex-column gap-4 align-items-center"
-    >
+    <div class="row step-container active-step d-flex flex-column gap-4 align-items-center">
       <div class="contain-title d-flex mx-2 align-items-center gap-3">
         <div class="step col-md-6">03</div>
       </div>
@@ -45,8 +36,8 @@
       </div>
       <div>
         <div class="from-label text-light-main-color">From</div>
-        <div class="account-name my-3">Jonathon Smith</div>
-        <div class="account-number">Account xxxx7890</div> 
+        <div class="account-name my-3">{{userName}}</div>
+        <div class="account-number">Account {{userAccNum}}</div>
       </div>
     </div>
   </div>
@@ -69,16 +60,7 @@
   </div>
   <!-- Buttons -->
   <div class="my-4">
-    <app-btn
-      [label]="'Confirm'"
-      [largeBtn]="true"
-      routerLink="/transferMoney/Payment"
-    ></app-btn>
+    <app-btn [label]="'Confirm'" [largeBtn]="true" routerLink="/transferMoney/Payment"></app-btn>
   </div>
-  <app-btn
-    [label]="'Back'"
-    [largeBtn]="true"
-    [outline]="true"
-    routerLink="/transferMoney/Amount"
-  ></app-btn>
+  <app-btn [label]="'Back'" [largeBtn]="true" [outline]="true" routerLink="/transferMoney/Amount"></app-btn>
 </div>

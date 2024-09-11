@@ -16,7 +16,7 @@ export class HeaderComponent {
   headerAmountInput: any;
   customer!: Customer;
   customerAccount!: Account;
-  customerBalance: any;
+  customerBalance = localStorage.getItem('balance');
   amountForm = new FormGroup({
     amount: new FormControl(null),
     // handle validation of amount < balance
@@ -50,7 +50,7 @@ export class HeaderComponent {
       accounts: [this.customerAccount],
     };
 
-    this.customerBalance = this.customer.accounts[0].balance
+    // this.customerBalance = this.customer.accounts[0].balance
     //console.log(this.customerBalance);
     // this.amountForm.get('amount')?.setValue(this.headerAmountInput)
     //this.amountForm.get('amount')?.setValue(this.headerAmountInput);

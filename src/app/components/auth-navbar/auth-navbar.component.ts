@@ -23,9 +23,9 @@ import { TestAuthService } from '../../core/services/test-auth.service';
 export class AuthNavbarComponent {
   private readonly _TestAuthService = inject(TestAuthService);
   isOpen = false;
-    name = this._TestAuthService.custmoer[0].name;
+  name = localStorage.getItem('name');
 
-  constructor(public _Nav: AuthService) {}
+  constructor(public _Nav: AuthService) { }
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;

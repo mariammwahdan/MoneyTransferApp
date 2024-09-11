@@ -119,12 +119,12 @@ export class SignupComponent implements OnInit {
             this._Router.navigate(['/login']);
           }
           console.log(res);
-          console.log(registerFormValue);
+          // console.log(registerFormValue);
         },
         error: (err) => {
           console.log(err);
-          console.log(registerFormValue);
-          console.log(this.registerForm.value);
+          // console.log(registerFormValue);
+          // console.log(this.registerForm.value);
 
           if (
             err.message ==
@@ -138,6 +138,6 @@ export class SignupComponent implements OnInit {
       });
     }
 
-    console.log(this.users);
+    // console.log(this.users);
   }
 }
