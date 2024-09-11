@@ -8,6 +8,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { signupValidators } from '../../shared/validators/register-validators';
 import { User } from '../../core/interfaces/user';
 import { FormAlertComponent } from '../../shared/form-alert/form-alert.component';
+import { TestAuthService } from '../../core/services/test-auth.service';
+import { GetUserInfoService } from '../../core/services/get-user-info.service';
 
 @Component({
   selector: 'app-logout',
@@ -25,16 +27,17 @@ import { FormAlertComponent } from '../../shared/form-alert/form-alert.component
 })
 export class LogoutComponent {
   hide: boolean = false;
+  loginErrorMsg: string = '';
   public _Nav = inject(AuthService);
   private readonly _Router = inject(Router);
-  token = '667ghb';
+  private readonly _TestAuthService = inject(TestAuthService);
+  private readonly _GetUserInfoService = inject(GetUserInfoService);
   loginForm = new FormGroup({
     email: new FormControl(null, signupValidators.email),
     password: new FormControl(null, Validators.required),
   });
 
   closing() {
-    // console.log('cloooooooooooooosed');
     this.hide = true;
   }
 
@@ -50,14 +53,32 @@ export class LogoutComponent {
   ];
 
   sendData() {
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
     if (this.loginForm.valid) {
-      localStorage.setItem('token', this.token);
-      if (Number(localStorage.getItem('sendingAmount')!)) {
-        this._Router.navigate(['/transferMoney/Amount']);
-      } else {
-        this._Router.navigate(['/home']);
-      }
+      this._TestAuthService.login(this.loginForm.value).subscribe({
+        next: (res) => {
+          if (res.message == 'Login Successful') {
+            // this._Router.navigate([`/home/${res.email}`]);
+            this._Router.navigate(['/home']);
+            localStorage.setItem('token', res.token);
+            // this.getUserEmail();
+            // this.getUser();
+            // this.getUserID()
+          }
+          console.log(res);
+        },
+        error: (err) => {
+          console.log(err);
+          if (
+            err.message ==
+            'Http failure response for https://banquemisr-transfer-service.onrender.com/api/auth/login: 500 OK'
+          ) {
+            this.loginErrorMsg = ' Invalid Email or Password';
+          } else {
+            this.loginErrorMsg = ' Login Failed';
+          }
+        },
+      });
     }
   }
 }

@@ -9,14 +9,15 @@ import { HttpClient } from '@angular/common/http';
 export class GetUserInfoService {
   private readonly _HttpClient = inject(HttpClient);
 
-  getUserByEmail = (userEmail:string): Observable<any> => {
+  getUserByEmail = (userEmail: string): Observable<any> => {
     return this._HttpClient.get(BaseUrl + `/api/customer/email/${userEmail}`);
   };
-  getUserByID = (userID:string): Observable<any> => {
+  getUserByID = (userID: string): Observable<any> => {
     return this._HttpClient.get(BaseUrl + `/api/customer/${userID}`);
   };
 
   getUser = (): Observable<any> => {
     return this._HttpClient.get(BaseUrl + `/api/customer`);
   };
+
 }

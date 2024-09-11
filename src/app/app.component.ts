@@ -37,7 +37,7 @@ export class AppComponent {
   userInactive: Subject<any> = new Subject();
 
   private readonly _AuthService = inject(AuthService);
-  private readonly _Router= inject(Router);
+  private readonly _Router = inject(Router);
 
   constructor() {
     this.setTimeout();

@@ -1,4 +1,5 @@
 $primary-gray: #898886;
+
 .transfer-amount-container {
   .amount-title {
     text-align: center;
@@ -55,6 +56,13 @@ $primary-gray: #898886;
       }
     }
   }
+}
+
+.favorite-item {
+  .closing {
+    display: none !important;
+  }
+
 }
 
 @media (max-width: 575.98px) {

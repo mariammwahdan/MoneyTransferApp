@@ -45,6 +45,7 @@ export class SignupComponent implements OnInit {
   years: any = years;
   private readonly _TestAuthService = inject(TestAuthService);
   private readonly _Router = inject(Router);
+
   constructor(public _Nav: AuthService) {
     const currentYear = new Date().getFullYear();
     console.log(currentYear);
@@ -96,9 +97,8 @@ export class SignupComponent implements OnInit {
       '-' +
       this.registerForm.get('dayOfBirth')?.value;
 
-    console.log(this.registerForm.get('yearOfBirth'));
-
-    console.log(dateOfBirth);
+    // console.log(this.registerForm.get('yearOfBirth'));
+    // console.log(dateOfBirth);
     return dateOfBirth;
   }
 

@@ -20,7 +20,9 @@ export class ThePaymentComponent {
     this.recipientAcc = localStorage.getItem('recipientAcc');
     this.amount = localStorage.getItem('amount');
   }
-  addToFav(){
-    this._FavouriteService.addToFav()
+  addToFav() {
+    this._FavouriteService.addToFavArr({ recipientName: this.recipientName!, recipientAcc: this.recipientAcc! })
   }
+
+
 }
