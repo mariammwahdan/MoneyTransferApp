@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { FormAlertComponent } from '../../shared/form-alert/form-alert.component';
 import { NgIf } from '@angular/common';
+import { FavouriteService } from '../../core/services/favourite.service';
 
 @Component({
   selector: 'app-transfer-amount',
@@ -26,6 +27,7 @@ import { NgIf } from '@angular/common';
 export class TransferAmountComponent {
   isBtnSubmit: boolean = false;
   private readonly _Router = inject(Router);
+  public  _FavouriteService = inject(FavouriteService);
   localStorageAmount: any;
   myAccountAmountForm = new FormGroup({
     amount: new FormControl(null, [Validators.required, Validators.min(1)]),
@@ -46,6 +48,20 @@ export class TransferAmountComponent {
 
   sendData() {
     if (this.myAccountAmountForm.valid) {
+      this.isBtnSubmit = true;
+      localStorage.setItem(
+        'recipientName',
+        this.myAccountAmountForm.get('recipientName')?.value!
+      );
+      localStorage.setItem(
+        'recipientAcc',
+        this.myAccountAmountForm.get('recipientAccount')?.value!
+      );
+      localStorage.setItem(
+        'amount',
+        this.myAccountAmountForm.get('amount')?.value!
+      );
+
       console.log('Form Submitted', this.myAccountAmountForm.value);
       this._Router.navigate(['/transferMoney/Confirmation']);
     } else {

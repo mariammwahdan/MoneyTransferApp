@@ -9,4 +9,13 @@ import { RouterLink } from '@angular/router';
   templateUrl: './transfer-confirmation.component.html',
   styleUrl: './transfer-confirmation.component.scss',
 })
-export class TransferConfirmationComponent {}
+export class TransferConfirmationComponent {
+  recipientName;
+  recipientAcc;
+  amount;
+  constructor() {
+    this.recipientName = localStorage.getItem('recipientName');
+    this.recipientAcc = localStorage.getItem('recipientAcc');
+    this.amount = localStorage.getItem('amount');
+  }
+}

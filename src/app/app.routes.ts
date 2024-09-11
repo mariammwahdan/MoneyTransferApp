@@ -14,10 +14,17 @@ import { SettingProfileComponent } from './components/setting-profile/setting-pr
 import { TransferAmountComponent } from './components/transfer-amount/transfer-amount.component';
 import { TransferConfirmationComponent } from './components/transfer-confirmation/transfer-confirmation.component';
 import { ThePaymentComponent } from './components/the-payment/the-payment.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { isLoggedInGuard } from './core/guards/is-logged-in.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  {
+    path: 'home/:userEmail',
+    component: HomeComponent,
+    canActivate: [isLoggedInGuard],
+  },
   {
     path: 'transferMoney',
     component: MoneyTransferComponent,
@@ -27,6 +34,7 @@ export const routes: Routes = [
       { path: 'Confirmation', component: TransferConfirmationComponent },
       { path: 'Payment', component: ThePaymentComponent },
     ],
+    canActivate: [isLoggedInGuard],
   },
   {
     path: 'myAccount',
@@ -47,9 +55,15 @@ export const routes: Routes = [
       },
       { path: 'ChangePassword', component: ChangePasswordComponent },
     ],
+    canActivate: [isLoggedInGuard],
   },
-  { path: 'help', component: HelpPageComponent, title: 'Help' },
+  {
+    path: 'help',
+    component: HelpPageComponent,
+    title: 'Help',
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: SignupComponent },
+  { path: 'loggedout', component: LogoutComponent },
   { path: '**', component: Error404Component, title: 'Not Found' },
 ];

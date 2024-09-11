@@ -8,11 +8,14 @@
     width: 40%;
     margin-bottom: 100px;
     form {
+      .day-input {
+        width: 30%;
+      }
       .month-input {
-        width: 80%;
+        width: 40%;
       }
       .year-input {
-        width: 50%;
+        width: 30%;
       }
       a:hover {
         text-decoration: none !important;

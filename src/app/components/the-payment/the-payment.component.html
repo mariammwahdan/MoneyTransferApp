@@ -62,7 +62,7 @@
     <div class="content text-center mb-3">
       <h2 class="fw-semibold transfer-succ">Your transfer was successful</h2>
       <h1 class="display-4 fw-semibold mt-4 transfer-am">
-        1000 <span class="text-main-light"> EGP</span>
+        {{amount}} <span class="text-main-light"> EGP</span>
       </h1>
     </div>
 
@@ -89,15 +89,15 @@
         </div>
         <div>
           <div class="from-label text-light-main-color">From</div>
-          <div class="account-name my-3">Jonathon Smith</div>
-          <div class="account-number">Account xxxx7890</div>
+          <div class="account-name my-3">{{recipientName}}</div>
+          <div class="account-number">Account {{recipientAcc}}</div>
         </div>
       </div>
     </div>
 
     <div class="amount-details w-100 mt-3">
       <div>Transfer amount</div>
-      <div>1000 EGP</div>
+      <div>{{amount}} EGP</div>
     </div>
     <div class="buttons w-100 d-flex flex-column gap-4">
       <app-btn
@@ -110,6 +110,7 @@
         [largeBtn]="true"
         [outline]="true"
         [label]="'Add To Favourite'"
+        (click)="addToFav()"
       ></app-btn>
     </div>
   </div>

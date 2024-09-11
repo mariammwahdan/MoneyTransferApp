@@ -50,7 +50,7 @@ export class HeaderComponent {
       accounts: [this.customerAccount],
     };
 
-    this.customerBalance = this.customer.accounts[0].balance;
+    this.customerBalance = this.customer.accounts[0].balance
     //console.log(this.customerBalance);
     // this.amountForm.get('amount')?.setValue(this.headerAmountInput)
     //this.amountForm.get('amount')?.setValue(this.headerAmountInput);

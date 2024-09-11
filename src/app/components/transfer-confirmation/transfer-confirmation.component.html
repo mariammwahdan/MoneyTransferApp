@@ -35,7 +35,7 @@
   </div>
   <div class="amount-details">
     <div>Total amount</div>
-    <div>1000 EGP</div>
+    <div>{{amount}} EGP</div>
   </div>
   <!-- From card -->
   <div class="account-card">
@@ -46,7 +46,7 @@
       <div>
         <div class="from-label text-light-main-color">From</div>
         <div class="account-name my-3">Jonathon Smith</div>
-        <div class="account-number">Account xxxx7890</div>
+        <div class="account-number">Account xxxx7890</div> 
       </div>
     </div>
   </div>
@@ -62,8 +62,8 @@
       </div>
       <div>
         <div class="to-label text-light-main-color">To</div>
-        <div class="account-name my-3">Asmaa Dosuky</div>
-        <div class="account-number">Account xxxx7890</div>
+        <div class="account-name my-3">{{recipientName}}</div>
+        <div class="account-number">Account {{recipientAcc}}</div>
       </div>
     </div>
   </div>

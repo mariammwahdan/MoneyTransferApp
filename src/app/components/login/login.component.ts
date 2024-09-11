@@ -12,6 +12,11 @@ import {
 } from '@angular/forms';
 import { signupValidators } from '../../shared/validators/register-validators';
 import { User } from '../../core/interfaces/user';
+import { TestAuthService } from '../../core/services/test-auth.service';
+import { Customer } from '../../core/interfaces/customer-interface';
+import { GetUserInfoService } from './../../core/services/get-user-info.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Component({
   selector: 'app-login',
@@ -27,33 +32,112 @@ import { User } from '../../core/interfaces/user';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
+  loginErrorMsg: string = '';
+  userId: string = '';
   private readonly _Router = inject(Router);
-  token = '667ghb';
-  constructor(public _Nav: AuthService) {}
+  private readonly _TestAuthService = inject(TestAuthService);
+  private readonly _GetUserInfoService = inject(GetUserInfoService);
+  // token = '667ghb';
+  // user:User[] = this._TestAuthService.users;
+
+  constructor(public _Nav: AuthService, private jwtHelper: JwtHelperService) {}
   loginForm = new FormGroup({
     email: new FormControl(null, signupValidators.email),
-    password: new FormControl(null, signupValidators.password),
+    password: new FormControl(null, Validators.required),
   });
-  users: User[] = [
-    {
-      email: 'aml@gmail.com',
-      password: 'Aml@123',
-    },
-  ];
 
   sendData() {
     console.log(this.loginForm.value);
     if (this.loginForm.valid) {
-      localStorage.setItem('token', this.token);
-      if (Number(localStorage.getItem('sendingAmount')!)) {
-        this._Router.navigate(['/transferMoney/Amount']);
-      } else {
-        this._Router.navigate(['/home']);
-      }
+      this._TestAuthService.login(this.loginForm.value).subscribe({
+        next: (res) => {
+          if (res.message == 'Login Successful') {
+            // this._Router.navigate([`/home/${res.email}`]);
+            localStorage.setItem('token', res.token);
+            // this.getUserEmail();
+            this.getUser();
+            let token = res.token // Replace with your token storage mechanism
+            if (token) {
+              this.userId = this.jwtHelper.decodeToken(token).sub;
+              console.log(this.userId);
+            }
+          }
+          console.log(res);
+          console.log(this.loginForm.value);
+        },
+        error: (err) => {
+          console.log(err);
+          console.log(this.loginForm.value);
+
+          if (
+            err.message ==
+            'Http failure response for https://banquemisr-transfer-service.onrender.com/api/auth/register: 500 OK'
+          ) {
+            this.loginErrorMsg = ' Invalid Email or Password';
+          } else {
+            this.loginErrorMsg = ' Login Failed';
+          }
+        },
+      });
     }
+    // if (this.loginForm.valid) {
+    //   localStorage.setItem('token', this.token);
+    //   if (Number(localStorage.getItem('sendingAmount')!)) {
+    //     this._Router.navigate(['/transferMoney/Amount']);
+    //   } else {
+    //     this._Router.navigate(['/home']);
+    //   }
+    // }
+  }
+
+  // getUserEmail() {
+  //   console.log('email');
+  //   this._GetUserInfoService
+  //     .getUserByEmail(this.loginForm.get('email')?.value!)
+  //     .subscribe({
+  //       next: (res) => {
+  //         localStorage.setItem('useremail', res.email);
+  //         // this._Router.navigate([`/home/${res.email}`]);
+  //         this._Router.navigate([`/home`]);
+  //       },
+  //       error: (err) => {
+  //         console.log(err);
+  //       },
+  //     });
+  // }
+
+  // getUserID(){
+  //    console.log('id');
+  //   this._GetUserInfoService
+  //     .getUserByID(this.loginForm.get('email')?.value!)
+  //     .subscribe({
+  //       next: (res) => {
+  //         localStorage.setItem('useremail', res.email);
+  //         this._Router.navigate([`/home/${res.email}`]);
+  //       },
+  //       error: (err) => {
+  //         console.log(err);
+  //       },
+  //     });
+  // }
+
+  getUser(){
+    console.log('email');
+      this._GetUserInfoService
+        .getUser()
+        .subscribe({
+          next: (res) => {
+            console.log(res)
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
   }
 
   ngOnInit() {
     this._Nav.hide();
+    
   }
 }
+

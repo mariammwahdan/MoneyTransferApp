@@ -23,11 +23,14 @@
 <div
   class="logout d-flex flex-column gap-3 justify-content-center align-items-center"
 >
-  <div class="loggedOut-message px-5 py-4 mb-5 rounded-3 d-flex gap-3 justify-content-between" [ngClass]="{ 'closing': hide }">
-    <div class="alert-icon mt-3 mb-2 ">
+  <div
+    class="loggedOut-message px-5 py-4 mb-5 rounded-3 d-flex gap-3 justify-content-between"
+    [ngClass]="{ closing: hide }"
+  >
+    <div class="alert-icon mt-3 mb-2">
       <img src="assets/imgs/alert.svg" alt="alert icon" />
     </div>
-    <p class="alert-text fw-semibold text-muted text-center mt-3 mb-2 ">
+    <p class="alert-text fw-semibold text-muted text-center mt-3 mb-2">
       We Logged you out because you were inactive for 2 minutes - it’s to help
       your account secure
     </p>
@@ -52,12 +55,20 @@
   <div class="card p-5">
     <h2 class="mb-3 fw-semibold">Welcome back</h2>
     <p class="text-muted mb-3">Login to your account</p>
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="sendData()">
       <label for="" class="mb-2 mt-3 fs-6">Your email address</label>
-      <input type="email" placeholder="Email@gmail.com" />
+      <input type="email" formControlName="email" placeholder="Email@gmail.com" />
+      <app-form-alert
+        [formName]="loginForm"
+        [inputName]="'email'"
+      ></app-form-alert>
 
       <label for="" class="mb-2 mt-4 fs-6">Password </label>
-      <input type="password" placeholder="*********" />
+      <input type="password"  formControlName="password" placeholder="*********" />
+      <app-form-alert
+        [formName]="loginForm"
+        [inputName]="'password'"
+      ></app-form-alert>
 
       <div class="register-btn mt-5">
         <app-btn [label]="'Login'" [largeBtn]="true"></app-btn>
