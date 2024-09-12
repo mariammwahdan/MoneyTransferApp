@@ -10,13 +10,17 @@ export class TransferMoneyService {
   private readonly _HttpClient = inject(HttpClient);
   constructor() { }
 
-  transferMoney = (transferInfo: any): Observable<any> => {
+  transferMoney = (transferInfo:   
+        { amount: number|null|undefined,
+         sendCurrency: string,
+         receiverAccNumber: string,
+         senderAccNumber:string|null}): Observable<any> => {
     const token = 'Bearer ' + localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: token,
     });
-    return this._HttpClient.post(BaseUrl + 'api/transfer/account ', transferInfo, { headers });
+    return this._HttpClient.post(BaseUrl + '/api/transfer/account', transferInfo, { headers });
   };
 
 

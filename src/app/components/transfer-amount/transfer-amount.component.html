@@ -52,6 +52,9 @@
       <p *ngIf="isBtnSubmit" class="text-danger fs-6 fw-medium mt-2">
         Please fill all inputs
       </p>
+      <p *ngIf="errorInputMsg" class="text-danger fs-6 fw-medium mt-2">
+        Can not transfer
+      </p>
       <div class="mt-4">
         <app-btn [largeBtn]="true" [label]="'Continue'" [dark]="true" routerLink="/transferMoney/confirm"
           (click)="toggleChild()">

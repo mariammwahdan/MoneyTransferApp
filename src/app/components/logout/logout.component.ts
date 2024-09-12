@@ -45,25 +45,13 @@ export class LogoutComponent {
     this._Nav.hide();
   }
 
-  users: User[] = [
-    {
-      email: 'aml@gmail.com',
-      password: 'Aml@123',
-    },
-  ];
-
   sendData() {
-    // console.log(this.loginForm.value);
     if (this.loginForm.valid) {
       this._TestAuthService.login(this.loginForm.value).subscribe({
         next: (res) => {
           if (res.message == 'Login Successful') {
-            // this._Router.navigate([`/home/${res.email}`]);
             this._Router.navigate(['/home']);
             localStorage.setItem('token', res.token);
-            // this.getUserEmail();
-            // this.getUser();
-            // this.getUserID()
           }
           console.log(res);
         },

@@ -32,39 +32,35 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class LoginComponent implements OnInit {
   loginErrorMsg: string = '';
-  userId: string = '';
-  accountName: string = '';
+
   private readonly _Router = inject(Router);
   private readonly _TestAuthService = inject(TestAuthService);
   private readonly _GetUserInfoService = inject(GetUserInfoService);
-  // user:User[] = this._TestAuthService.users;
 
-  constructor(public _Nav: AuthService, private jwtHelper: JwtHelperService) {}
-
+  
   loginForm = new FormGroup({
     email: new FormControl(null, signupValidators.email),
     password: new FormControl(null, Validators.required),
   });
+  
+  constructor(public _Nav: AuthService) {}
 
   sendData() {
-    // console.log(this.loginForm.value);
     if (this.loginForm.valid) {
       this._TestAuthService.login(this.loginForm.value).subscribe({
         next: (res) => {
-          console.log(res.customerId);
           if (res.message == 'Login Successful') {
             this._Router.navigate(['/home']);
             localStorage.setItem('token', res.token);
             localStorage.setItem('name', res.name);
             localStorage.setItem('balance', res.balance);
             localStorage.setItem('email', res.email);
-            // let customerId = res.CustomerId?.toString();
+            localStorage.setItem('id', res.id);
             this.getUserEmail();
             this.getUser();
-            let token = res.token;
-            if (token) {
-              this.userId = this.jwtHelper.decodeToken(token).sub;
-              console.log(this.userId);
+            if (Number(localStorage.getItem('sendingAmount')!)) {
+            } else {
+              this._Router.navigate(['/home']);
             }
           }
           console.log(res);
@@ -85,11 +81,12 @@ export class LoginComponent implements OnInit {
     }
     // if (this.loginForm.valid) {
     //   localStorage.setItem('token', this.token);
-    //   if (Number(localStorage.getItem('sendingAmount')!)) {
-    //     this._Router.navigate(['/transferMoney/Amount']);
-    //   } else {
-    //     this._Router.navigate(['/home']);
-    //   }
+    //  if (Number(localStorage.getItem('sendingAmount')!)) {
+    //    this._Router.navigate(['/transferMoney/Amount']);
+    //  } else {
+    //    this._Router.navigate(['/home']);
+    //  }
+      
     // }
   }
 
@@ -103,7 +100,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('useremail', res.email);
           localStorage.setItem('MyAccNum', res.accounts[0].accountNumber);
           localStorage.setItem('MyAccId', res.accounts[0].id);
-          // this._Router.navigate([`/home/${res.email}`]);
           // this._Router.navigate([`/home`]);
         },
         error: (err) => {
@@ -128,7 +124,6 @@ export class LoginComponent implements OnInit {
   // }
 
   getUser() {
-    // console.log('email');
     this._GetUserInfoService.getUser().subscribe({
       next: (res) => {
         console.log(res);

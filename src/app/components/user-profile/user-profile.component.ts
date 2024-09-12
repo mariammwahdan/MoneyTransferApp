@@ -16,7 +16,7 @@ export class UserProfileComponent {
 
   // name = this._TestAuthService.custmoer[0].name;
   // email = this._TestAuthService.custmoer[0].email;
-  gender = this._TestAuthService.custmoer[0].gender;
-  phoneNum = this._TestAuthService.custmoer[0].phoneNumber;
+  // gender = this._TestAuthService.custmoer[0].gender;
+  // phoneNum = this._TestAuthService.custmoer[0].phoneNumber;
   // balance = this._TestAuthService.custmoer[0].accounts[0].balance;
 }
