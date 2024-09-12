@@ -7,8 +7,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-
-import { Router } from '@angular/router';
 import { FormAlertComponent } from '../../shared/form-alert/form-alert.component';
 import { UpdateCustomerService } from '../../core/services/update-customer.service';
 
@@ -20,10 +18,8 @@ import { UpdateCustomerService } from '../../core/services/update-customer.servi
   styleUrl: './setting-profile.component.scss',
 })
 export class SettingProfileComponent {
-  private readonly _Router = inject(Router);
   private readonly _UpdateCustomerService = inject(UpdateCustomerService);
 
-  constructor(public _Nav: AuthService) {}
   updateForm = new FormGroup({
     email: new FormControl(null, Validators.email),
     country: new FormControl(null),
@@ -36,14 +32,17 @@ export class SettingProfileComponent {
     if (this.updateForm.valid) {
       console.log(this.updateForm.value);
       let updatedUserInfo = {
-        name: '' + this.updateForm.get('name')?.value,
-        email: '' + this.updateForm.get('email')?.value,
-        phoneNumber: '' + this.updateForm.get('phoneNumber')?.value,
+        name: this.updateForm.get('name')?.value || '',
+        email: this.updateForm.get('email')?.value || '',
+        phoneNumber: this.updateForm.get('phoneNumber')?.value || '',
       };
 
       this._UpdateCustomerService.updateData(updatedUserInfo).subscribe({
         next: (res) => {
           console.log(res);
+          localStorage.setItem('email', res.email);
+          localStorage.setItem('name', res.name);
+          localStorage.setItem('phone', res.phoneNumber);
         },
         error: (err) => {
           console.log(err);
