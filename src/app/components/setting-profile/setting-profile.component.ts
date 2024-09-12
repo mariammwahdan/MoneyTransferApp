@@ -44,6 +44,9 @@ export class SettingProfileComponent {
       this._UpdateCustomerService.updateData(updatedUserInfo).subscribe({
         next: (res) => {
           console.log(res);
+          localStorage.setItem('email', res.email);
+          localStorage.setItem('name', res.name);
+          localStorage.setItem('phone', res.phoneNumber);
         },
         error: (err) => {
           console.log(err);
