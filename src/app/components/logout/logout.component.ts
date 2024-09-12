@@ -52,11 +52,21 @@ export class LogoutComponent {
           if (res.message == 'Login Successful') {
             this._Router.navigate(['/home']);
             localStorage.setItem('token', res.token);
+            localStorage.setItem('name', res.name);
+            localStorage.setItem('balance', res.balance);
+            localStorage.setItem('email', res.email);
+            localStorage.setItem('id', res.id);
+            this.getUserEmail();
+            if (Number(localStorage.getItem('sendingAmount')!)) {
+            } else {
+              this._Router.navigate(['/home']);
+            }
           }
           console.log(res);
         },
         error: (err) => {
           console.log(err);
+          console.log(this.loginForm.value);
           if (
             err.message ==
             'Http failure response for https://banquemisr-transfer-service.onrender.com/api/auth/login: 500 OK'
@@ -68,5 +78,22 @@ export class LogoutComponent {
         },
       });
     }
+  }
+
+  getUserEmail() {
+    console.log('email');
+    this._GetUserInfoService
+      .getUserByEmail(this.loginForm.get('email')?.value!)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          localStorage.setItem('useremail', res.email);
+          localStorage.setItem('MyAccNum', res.accounts[0].accountNumber);
+          localStorage.setItem('MyAccId', res.accounts[0].id);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 }

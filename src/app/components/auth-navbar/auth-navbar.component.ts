@@ -23,9 +23,9 @@ import { TestAuthService } from '../../core/services/test-auth.service';
 export class AuthNavbarComponent {
   private readonly _TestAuthService = inject(TestAuthService);
   isOpen = false;
-  name = localStorage.getItem('name');
-
-  constructor(public _Nav: AuthService) { }
+  name:string="";
+  constructor(public _Nav: AuthService) {
+  }
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
@@ -40,5 +40,10 @@ export class AuthNavbarComponent {
   }
   logout() {
     this._Nav.logout();
+  }
+
+  ngOnInit(): void {
+        this.name = localStorage.getItem('name')!;
+    
   }
 }

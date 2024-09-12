@@ -1,23 +1,32 @@
 <div class="transfer-confirmation-container">
   <div class="steps d-flex justify-content-center align-items-center">
-    <div class="row step-container active-step d-flex flex-column gap-4 align-items-center"
-      routerLink="/transferMoney/Amount">
+    <div
+      class="row step-container active-step d-flex flex-column gap-4 align-items-center"
+      routerLink="/transferMoney/Amount"
+    >
       <div class="contain-title d-flex align-items-center">
-        <div class="step first-step col-md-6 mx-2" routerLink="/transferMoney/Amount">
+        <div
+          class="step first-step col-md-6 mx-2"
+          routerLink="/transferMoney/Amount"
+        >
           01
         </div>
         <div class="step-line first-step-line col-md-6"></div>
       </div>
       <span class="text-black">Amount</span>
     </div>
-    <div class="row step-container active-step d-flex flex-column gap-4 align-items-center">
+    <div
+      class="row step-container active-step d-flex flex-column gap-4 align-items-center"
+    >
       <div class="contain-title d-flex align-items-center">
         <div class="step col-md-6 mx-2 second-step">02</div>
         <div class="step-line col-md-6"></div>
       </div>
       <span class="text-black">Confirmation</span>
     </div>
-    <div class="row step-container active-step d-flex flex-column gap-4 align-items-center">
+    <div
+      class="row step-container active-step d-flex flex-column gap-4 align-items-center"
+    >
       <div class="contain-title d-flex mx-2 align-items-center gap-3">
         <div class="step col-md-6">03</div>
       </div>
@@ -26,7 +35,7 @@
   </div>
   <div class="amount-details">
     <div>Total amount</div>
-    <div>{{amount}} EGP</div>
+    <div>{{ amount }} EGP</div>
   </div>
   <!-- From card -->
   <div class="account-card">
@@ -36,8 +45,8 @@
       </div>
       <div>
         <div class="from-label text-light-main-color">From</div>
-        <div class="account-name my-3">{{userName}}</div>
-        <div class="account-number">Account {{userAccNum}}</div>
+        <div class="account-name my-3">{{ userName }}</div>
+        <div class="account-number">Account {{ userAccNum }}</div>
       </div>
     </div>
   </div>
@@ -53,14 +62,29 @@
       </div>
       <div>
         <div class="to-label text-light-main-color">To</div>
-        <div class="account-name my-3">{{recipientName}}</div>
-        <div class="account-number">Account {{recipientAcc}}</div>
+        <div class="account-name my-3">{{ recipientName }}</div>
+        <div class="account-number">Account {{ recipientAcc }}</div>
       </div>
     </div>
   </div>
+  <p *ngIf="isBtnSubmit" class="text-danger fs-6 fw-medium mt-2">
+        Please fill all inputs
+      </p>
+      <p *ngIf="errorInputMsg" class="text-danger fs-6 fw-medium mt-2">
+        Can not transfer, Please check recipcient data !
+      </p>
   <!-- Buttons -->
   <div class="my-4">
-    <app-btn [label]="'Confirm'" [largeBtn]="true" routerLink="/transferMoney/Payment"></app-btn>
+    <app-btn
+      [label]="'Confirm'"
+      [largeBtn]="true"
+      (click)="confirmTransaction()"
+    ></app-btn>
   </div>
-  <app-btn [label]="'Back'" [largeBtn]="true" [outline]="true" routerLink="/transferMoney/Amount"></app-btn>
+  <app-btn
+    [label]="'Back'"
+    [largeBtn]="true"
+    [outline]="true"
+    routerLink="/transferMoney/Amount"
+  ></app-btn>
 </div>

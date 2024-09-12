@@ -25,7 +25,7 @@ import { GetUserInfoService } from '../../core/services/get-user-info.service';
     NgIf,
     NgClass,
     NgFor,
-  ],
+  ], 
   templateUrl: './transfer-amount.component.html',
   styleUrl: './transfer-amount.component.scss',
 })
@@ -40,31 +40,7 @@ export class TransferAmountComponent {
   hide: boolean = false;
   favoriteItems: FavItem[] = [];
   email: string = '';
-  MyAccNum: string = '';
-  currency: string = '';
   errorInputMsg: boolean = false;
-
-  getUserEmail() {
-    console.log('email');
-    this._GetUserInfoService
-      .getUserByEmail(localStorage.getItem('email')!)
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-          console.log(res.email);
-          this.email = res.email;
-          this.MyAccNum = res.accounts[0].accountNumber;
-          this.currency = res.accounts[0].currency;
-          console.log(res.MyAccNum);
-          // this.email = res.
-          // this._Router.navigate([`/home/${res.email}`]);
-          // this._Router.navigate([`/home`]);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
-  }
 
   myAccountAmountForm = new FormGroup({
     amount: new FormControl(null, [Validators.required, Validators.min(1)]),
@@ -102,41 +78,7 @@ export class TransferAmountComponent {
   sendData() {
     if (this.myAccountAmountForm.valid) {
       this.isBtnSubmit = false;
-      let transferInfo: {
-        amount: number | null | undefined;
-        sendCurrency: string;
-        receiverAccNumber: string;
-        senderAccNumber: string | null;
-      } = {
-        amount: this.myAccountAmountForm.get('amount')?.value,
-        sendCurrency: 'EGY',
-        receiverAccNumber:
-          '' + this.myAccountAmountForm.get('recipientAccount')?.value,
-        senderAccNumber: localStorage.getItem('MyAccNum'),
-      };
-
-      this._TransferMoneyService.transferMoney(transferInfo).subscribe({
-        next: (res) => {
-          console.log(res);
-          this._Router.navigate(['/transferMoney/Confirmation']);
-          this.isBtnSubmit = false;
-          this.errorInputMsg = false;
-        },
-        error: (err) => {
-          console.log(transferInfo);
-          console.log(err);
-          this.getUserEmail();
-          if (
-            err.message ==
-            'Http failure response for https://banquemisr-transfer-service.onrender.com/api/transfer/account: 500 OK'
-          ) {
-            this.errorInputMsg = true;
-          }else{
-            this.isBtnSubmit = true;
-          }
-          console.log('err');
-        },
-      });
+      this._Router.navigate(['/transferMoney/Confirmation']);
       localStorage.setItem(
         'recipientName',
         this.myAccountAmountForm.get('recipientName')?.value!
@@ -149,6 +91,8 @@ export class TransferAmountComponent {
         'amount',
         this.myAccountAmountForm.get('amount')?.value!
       );
+    }else{
+      this.myAccountAmountForm.markAllAsTouched()
     }
   }
 

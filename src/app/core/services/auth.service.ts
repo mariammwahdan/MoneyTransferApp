@@ -1,14 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   visible: boolean;
-  // private readonly _HttpClient = inject(HttpClient);
   constructor() {
     this.visible = true;
   }
@@ -33,7 +29,6 @@ export class AuthService {
     }
   }
   logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('sendingAmount');
+  localStorage.clear();
   }
 }

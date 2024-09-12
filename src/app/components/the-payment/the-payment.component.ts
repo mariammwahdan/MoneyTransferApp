@@ -31,8 +31,6 @@ export class ThePaymentComponent {
     this.amount = localStorage.getItem('amount');
   }
   addToFav() {
-    // this._FavouriteService.addToFavArr({ recipientName: this.recipientName!, recipientAcc: this.recipientAcc! })
-    console.log(this.recipientInfo);
     this._FavouriteService.addToFavorite(this.recipientInfo).subscribe({
       next: (res) => {
         console.log(res);

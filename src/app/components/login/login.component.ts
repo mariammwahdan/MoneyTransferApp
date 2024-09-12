@@ -1,4 +1,3 @@
-import { Customer } from './../../core/interfaces/customer-interface';
 import { Component, inject, OnInit } from '@angular/core';
 import { BtnComponent } from '../../shared/btn/btn.component';
 import { AuthService } from '../../core/services/auth.service';
@@ -15,7 +14,6 @@ import { signupValidators } from '../../shared/validators/register-validators';
 
 import { TestAuthService } from '../../core/services/test-auth.service';
 import { GetUserInfoService } from './../../core/services/get-user-info.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-login',
@@ -79,15 +77,6 @@ export class LoginComponent implements OnInit {
         },
       });
     }
-    // if (this.loginForm.valid) {
-    //   localStorage.setItem('token', this.token);
-    //  if (Number(localStorage.getItem('sendingAmount')!)) {
-    //    this._Router.navigate(['/transferMoney/Amount']);
-    //  } else {
-    //    this._Router.navigate(['/home']);
-    //  }
-      
-    // }
   }
 
   getUserEmail() {

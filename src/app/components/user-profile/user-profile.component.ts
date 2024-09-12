@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { TestAuthService } from '../../core/services/test-auth.service';
+import { Account } from '../../core/interfaces/customer-interface';
+import { GetUserInfoService } from '../../core/services/get-user-info.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,14 +11,26 @@ import { TestAuthService } from '../../core/services/test-auth.service';
   styleUrl: './user-profile.component.scss',
 })
 export class UserProfileComponent {
-  private readonly _TestAuthService = inject(TestAuthService);
-  balance = localStorage.getItem('balance');
+  private readonly _GetUserInfoService = inject(GetUserInfoService);
   name = localStorage.getItem('name');
   email = localStorage.getItem('email');
+  customerAccount!: Account;
+  customerBalance = localStorage.getItem('balance');
 
-  // name = this._TestAuthService.custmoer[0].name;
-  // email = this._TestAuthService.custmoer[0].email;
-  // gender = this._TestAuthService.custmoer[0].gender;
-  // phoneNum = this._TestAuthService.custmoer[0].phoneNumber;
-  // balance = this._TestAuthService.custmoer[0].accounts[0].balance;
+  getUserBalance() {
+    let accNum = localStorage.getItem('MyAccNum')!;
+    this._GetUserInfoService.getUserBalance(accNum).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.customerBalance = res;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  ngOnInit(): void {
+    this.getUserBalance();
+  }
 }

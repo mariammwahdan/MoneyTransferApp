@@ -5,6 +5,7 @@ import { NgClass } from '@angular/common';
 import { AuthService } from '../../core/services/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { GetUserInfoService } from '../../core/services/get-user-info.service';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -21,6 +22,7 @@ export class HeaderComponent {
     amount: new FormControl(null),
   });
   private readonly _Router = inject(Router);
+  private readonly _GetUserInfoService = inject(GetUserInfoService);
 
   constructor(public _Nav: AuthService) {
     if (this._Nav.isLoggedIn()) {
@@ -42,5 +44,22 @@ export class HeaderComponent {
       this.amountForm.get('amount')?.setValue(this.headerAmountInput);
       this._Router.navigate(['/transferMoney/Amount']);
     }
+  }
+
+  getUserBalance(){
+   let accNum=localStorage.getItem("MyAccNum")!
+    this._GetUserInfoService.getUserBalance(accNum).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.customerBalance = res;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  ngOnInit(): void {
+    this.getUserBalance();
   }
 }
