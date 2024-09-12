@@ -11,12 +11,11 @@ export class GetUserInfoService {
   token = 'Bearer ' + localStorage.getItem('token');
   header = new Headers({
     'Content-Type': 'application/json',
-    'Authorization': this.token
+    Authorization: this.token,
   });
   // getUserByEmail = (userEmail: string): Observable<any> => {
   //   return this._HttpClient.get(BaseUrl + `/api/customer/email/${userEmail}`);
   // };
-
 
   getUserByEmail = (userEmail: string): Observable<any> => {
     const token = 'Bearer ' + localStorage.getItem('token');
@@ -28,7 +27,6 @@ export class GetUserInfoService {
       headers,
     });
   };
-
 
   getUserByID = (userID: string): Observable<any> => {
     return this._HttpClient.get(BaseUrl + `/api/customer/${userID}`);
@@ -43,5 +41,4 @@ export class GetUserInfoService {
 
     return this._HttpClient.get(BaseUrl + '/api/customer', { headers });
   };
-
 }

@@ -36,9 +36,9 @@ export class SettingProfileComponent {
     if (this.updateForm.valid) {
       console.log(this.updateForm.value);
       let updatedUserInfo = {
-        name: '' + this.updateForm.get('name')?.value,
-        email: '' + this.updateForm.get('email')?.value,
-        phoneNumber: '' + this.updateForm.get('phoneNumber')?.value,
+        name: this.updateForm.get('name')?.value || '',
+        email: this.updateForm.get('email')?.value || '',
+        phoneNumber: this.updateForm.get('phoneNumber')?.value || '',
       };
 
       this._UpdateCustomerService.updateData(updatedUserInfo).subscribe({

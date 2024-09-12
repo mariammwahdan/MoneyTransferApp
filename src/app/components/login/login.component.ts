@@ -128,7 +128,7 @@ export class LoginComponent implements OnInit {
   // }
 
   getUser() {
-    // console.log('email');
+    console.log('email');
     this._GetUserInfoService.getUser().subscribe({
       next: (res) => {
         console.log(res);
