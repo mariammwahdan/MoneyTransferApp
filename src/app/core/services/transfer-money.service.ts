@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BaseUrl } from '../environment/BaseUrl';
@@ -11,6 +11,13 @@ export class TransferMoneyService {
   constructor() { }
 
   transferMoney = (transferInfo: any): Observable<any> => {
-    return this._HttpClient.post(BaseUrl + 'api/transfer/account ', transferInfo);
+    const token = 'Bearer ' + localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: token,
+    });
+    return this._HttpClient.post(BaseUrl + 'api/transfer/account ', transferInfo, { headers });
   };
+
+
 }

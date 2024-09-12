@@ -49,7 +49,7 @@
       <input type="number" id="recipientAccount" formControlName="recipientAccount" />
       <app-form-alert [formName]="myAccountAmountForm" [inputName]="'recipientAccount'"></app-form-alert>
       <app-form-alert [formName]="myAccountAmountForm"></app-form-alert>
-      <p *ngIf="showChild" class="text-danger fs-6 fw-medium mt-2">
+      <p *ngIf="isBtnSubmit" class="text-danger fs-6 fw-medium mt-2">
         Please fill all inputs
       </p>
       <div class="mt-4">

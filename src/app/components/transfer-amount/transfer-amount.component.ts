@@ -11,6 +11,7 @@ import { FormAlertComponent } from '../../shared/form-alert/form-alert.component
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FavouriteService } from '../../core/services/favourite.service';
 import { FavItem } from '../../core/interfaces/favList-interface';
+import { TransferMoneyService } from '../../core/services/transfer-money.service';
 
 @Component({
   selector: 'app-transfer-amount',
@@ -31,6 +32,7 @@ export class TransferAmountComponent {
   isBtnSubmit: boolean = false;
   private readonly _Router = inject(Router);
   public _FavouriteService = inject(FavouriteService);
+  public _TransferMoneyService = inject(TransferMoneyService);
   localStorageAmount: any;
   showChild: boolean = false;
   hide: boolean = false;
@@ -48,6 +50,8 @@ export class TransferAmountComponent {
     ]),
   });
 
+  amount = `${this.myAccountAmountForm.get('amount')?.value}`;
+  receiverAccNumber = `${this.myAccountAmountForm.get('recipientAccount')?.value}`
   deleteItem() {
     let id = localStorage.getItem('MyAccId')
     this._FavouriteService.deleteFromFavorite(id).subscribe({
@@ -68,25 +72,40 @@ export class TransferAmountComponent {
 
   sendData() {
     if (this.myAccountAmountForm.valid) {
-      this.isBtnSubmit = true;
-      localStorage.setItem(
-        'recipientName',
-        this.myAccountAmountForm.get('recipientName')?.value!
-      );
-      localStorage.setItem(
-        'recipientAcc',
-        this.myAccountAmountForm.get('recipientAccount')?.value!
-      );
-      localStorage.setItem(
-        'amount',
-        this.myAccountAmountForm.get('amount')?.value!
-      );
-
-      console.log('Form Submitted', this.myAccountAmountForm.value);
-      this._Router.navigate(['/transferMoney/Confirmation']);
-    } else {
       this.isBtnSubmit = false;
-      console.log('Form is invalid');
+      let transferInfo = {
+        amount: '' + this.myAccountAmountForm.get('amount')?.value,
+        sendCurrency: "EGY",
+        receiverAccNumber: '' + this.myAccountAmountForm.get('recipientAccount')?.value,
+        senderAccNumber: localStorage.getItem('MyAccNum')
+      }
+
+      this._TransferMoneyService.transferMoney(transferInfo).subscribe({
+        next: (res) => {
+          console.log(res);
+          this._Router.navigate(['/transferMoney/Confirmation']);
+          this.isBtnSubmit = false;
+        },
+        error: (err) => {
+          console.log(transferInfo);
+
+          console.log(err);
+          this.isBtnSubmit = true;
+          console.log('err');
+        }
+      })
+      // localStorage.setItem(
+      //   'recipientName',
+      //   this.myAccountAmountForm.get('recipientName')?.value!
+      // );
+      // localStorage.setItem(
+      //   'recipientAcc',
+      //   this.myAccountAmountForm.get('recipientAccount')?.value!
+      // );
+      // localStorage.setItem(
+      //   'amount',
+      //   this.myAccountAmountForm.get('amount')?.value!
+      // );
     }
   }
 
