@@ -1,22 +1,25 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { baseUrl } from '../environment/local-environment';
-
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   visible: boolean;
-  // private readonly _HttpClient = inject(HttpClient);
-  constructor() { this.visible = true; }
+  constructor() {
+    this.visible = true;
+  }
 
-  hide() { this.visible = false; }
+  hide() {
+    this.visible = false;
+  }
 
-  show() { this.visible = true; }
+  show() {
+    this.visible = true;
+  }
 
-  toggle() { this.visible = !this.visible; }
+  toggle() {
+    this.visible = !this.visible;
+  }
 
   isLoggedIn() {
     if (localStorage.getItem('token')) {
@@ -25,8 +28,7 @@ export class AuthService {
       return false;
     }
   }
-
-
-
-
+  logout() {
+  localStorage.clear();
+  }
 }

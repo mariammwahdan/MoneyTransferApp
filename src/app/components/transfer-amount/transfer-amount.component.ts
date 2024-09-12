@@ -8,7 +8,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { FormAlertComponent } from '../../shared/form-alert/form-alert.component';
-import { NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
+import { FavouriteService } from '../../core/services/favourite.service';
+import { FavItem } from '../../core/interfaces/favList-interface';
+import { TransferMoneyService } from '../../core/services/transfer-money.service';
+import { GetUserInfoService } from '../../core/services/get-user-info.service';
 
 @Component({
   selector: 'app-transfer-amount',
@@ -19,14 +23,25 @@ import { NgIf } from '@angular/common';
     ReactiveFormsModule,
     FormAlertComponent,
     NgIf,
-  ],
+    NgClass,
+    NgFor,
+  ], 
   templateUrl: './transfer-amount.component.html',
   styleUrl: './transfer-amount.component.scss',
 })
 export class TransferAmountComponent {
   isBtnSubmit: boolean = false;
   private readonly _Router = inject(Router);
+  public _FavouriteService = inject(FavouriteService);
+  public _GetUserInfoService = inject(GetUserInfoService);
+  public _TransferMoneyService = inject(TransferMoneyService);
   localStorageAmount: any;
+  showChild: boolean = false;
+  hide: boolean = false;
+  favoriteItems: FavItem[] = [];
+  email: string = '';
+  errorInputMsg: boolean = false;
+
   myAccountAmountForm = new FormGroup({
     amount: new FormControl(null, [Validators.required, Validators.min(1)]),
     recipientName: new FormControl(null, [
@@ -38,24 +53,62 @@ export class TransferAmountComponent {
       Validators.minLength(5),
     ]),
   });
+
+  amount = this.myAccountAmountForm.get('amount')?.value;
+  receiverAccNumber = `${
+    this.myAccountAmountForm.get('recipientAccount')?.value
+  }`;
+  deleteItem() {
+    let id = localStorage.getItem('MyAccId');
+    this._FavouriteService.deleteFromFavorite(id).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
   ngOnInit(): void {
     this.localStorageAmount = Number(localStorage.getItem('sendingAmount')!);
     this.myAccountAmountForm.get('amount')?.setValue(this.localStorageAmount);
-    console.log(this.myAccountAmountForm.get('amount')?.value);
   }
 
   sendData() {
     if (this.myAccountAmountForm.valid) {
-      console.log('Form Submitted', this.myAccountAmountForm.value);
-      this._Router.navigate(['/transferMoney/Confirmation']);
-    } else {
       this.isBtnSubmit = false;
-      console.log('Form is invalid');
+      this._Router.navigate(['/transferMoney/Confirmation']);
+      localStorage.setItem(
+        'recipientName',
+        this.myAccountAmountForm.get('recipientName')?.value!
+      );
+      localStorage.setItem(
+        'recipientAcc',
+        this.myAccountAmountForm.get('recipientAccount')?.value!
+      );
+      localStorage.setItem(
+        'amount',
+        this.myAccountAmountForm.get('amount')?.value!
+      );
+    }else{
+      this.myAccountAmountForm.markAllAsTouched()
     }
   }
-  showChild: boolean = false;
 
   toggleChild() {
     this.showChild = !this.showChild;
+  }
+
+  getAllFavorite() {
+    this._FavouriteService.getAllFavorite().subscribe({
+      next: (res) => {
+        this.favoriteItems = res;
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

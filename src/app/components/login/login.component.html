@@ -55,8 +55,9 @@
         [formName]="loginForm"
         [inputName]="'password'"
       ></app-form-alert>
+      <p class="text-danger my-3">{{loginErrorMsg}}</p>
       <div class="register-btn mt-4">
-        <app-btn [label]="'Login'" [largeBtn]="true"></app-btn>
+        <app-btn [label]="'Login'" [largeBtn]="true" ></app-btn>
       </div>
       <p class="text-muted mt-3">
         Don't have an account?

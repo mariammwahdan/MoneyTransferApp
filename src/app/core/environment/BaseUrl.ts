@@ -1,0 +1,1 @@
+export const BaseUrl = 'https://banquemisr-transfer-service.onrender.com';

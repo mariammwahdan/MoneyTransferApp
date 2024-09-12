@@ -45,11 +45,11 @@
       <label for="Country" class="mb-2 mt-3 fs-6">Country </label>
       <div class="custom-select">
         <select name="user-country" id="user-country" formControlName="country">
-          <option class="select-placholder" value="United Kingdom" selected>
+          <option class="select-placholder" value="United Kingdom" selected hidden>
             UK
           </option>
           @for (country of countries; track $index) {
-          <option [value]="country.name">{{ country.name }}</option>
+          <option [value]="country.code">{{ country.name }}</option>
           }
         </select>
         <span class="dropdown-arrow"
@@ -68,13 +68,14 @@
       >
         <div class="day-input pe-3">
           <label class="mb-2 mt-2 fs-6">Day </label>
-          <input
-            type="number"
-            placeholder="DD"
-            formControlName="dayOfBirth"
-            min="1"
-            max="31"
-          />
+          <select name="day" id="day" formControlName="dayOfBirth">
+            <option class="select-placholder" value="day" selected hidden>
+              Day
+            </option>
+            @for (day of days; track $index) {
+            <option [value]="day">{{ day }}</option>
+            }
+          </select>
         </div>
         <div class="month-input pe-3">
           <label class="mb-2 mt-2 fs-6">Month </label>
@@ -135,17 +136,18 @@
         type="password"
         placeholder="*********"
         class="mb-3"
-        formControlName="rePassword"
+        formControlName="confirmPassword"
       />
       <app-form-alert
         [formName]="registerForm"
-        [inputName]="'rePassword'"
+        [inputName]="'confirmPassword'"
       ></app-form-alert>
       <small class="text-muted"
         >The password should be at least eight characters long. To make it
         stronger, use upper and lower case letters, numbers, and symbols like !
         " ? $ % ^ & )</small
       >
+      <p class="text-danger my-3">{{ registerErrorMsg }}</p>
 
       <div class="register-btn mt-4">
         <app-btn [label]="'Create Account'" [largeBtn]="true"></app-btn>

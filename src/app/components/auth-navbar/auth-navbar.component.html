@@ -31,8 +31,8 @@
           <a class="nav-link dropdown-toggle user-name" (click)="toggleDropdown()" href="#" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             <span class="short-name bg-gray-light rounded-circle p-2 me-1">
-              {{ user.name | initialName }}</span>
-            {{ user.name }}
+              {{ name! | initialName }}</span>
+            {{ name }}
 
             <span class="dropdown-arrow" [ngClass]="{ 'dropdown-arrow-up': isOpen }">
               <i class="fa-solid fa-chevron-down fa-xs"></i>

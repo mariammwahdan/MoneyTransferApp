@@ -1,64 +1,43 @@
 <div class="header">
   <div class="container d-flex justify-content-between align-items-center py-4">
     <h1 class="fw-semibold fs-2">Speedo Transfer</h1>
-    <a routerLink="/home" class="text-black"
-      ><svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M1.51562 22.4876L12.0016 12.0016L22.4876 22.4876M22.4876 1.51562L11.9996 12.0016L1.51562 1.51562"
-          stroke="#24221E"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+    <a routerLink="/home" class="text-black"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.51562 22.4876L12.0016 12.0016L22.4876 22.4876M22.4876 1.51562L11.9996 12.0016L1.51562 1.51562"
+          stroke="#24221E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </a>
   </div>
 </div>
-<div
-  class="logout d-flex flex-column gap-3 justify-content-center align-items-center"
->
-  <div class="loggedOut-message px-5 py-4 mb-5 rounded-3 d-flex gap-3 justify-content-between" [ngClass]="{ 'closing': hide }">
-    <div class="alert-icon mt-3 mb-2 ">
+<div class="logout d-flex flex-column gap-3 justify-content-center align-items-center">
+  <div class="loggedOut-message px-5 py-4 mb-5 rounded-3 d-flex gap-3 justify-content-between"
+    [ngClass]="{ closing: hide }">
+    <div class="alert-icon mt-3 mb-2">
       <img src="assets/imgs/alert.svg" alt="alert icon" />
     </div>
-    <p class="alert-text fw-semibold text-muted text-center mt-3 mb-2 ">
+    <p class="alert-text fw-semibold text-muted text-center mt-3 mb-2">
       We Logged you out because you were inactive for 2 minutes - it’s to help
       your account secure
     </p>
     <div class="close-icon mt-3 mb-2 cursor-pointer" (click)="closing()">
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M1.51562 22.4876L12.0016 12.0016L22.4876 22.4876M22.4876 1.51562L11.9996 12.0016L1.51562 1.51562"
-          stroke="#24221E"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.51562 22.4876L12.0016 12.0016L22.4876 22.4876M22.4876 1.51562L11.9996 12.0016L1.51562 1.51562"
+          stroke="#24221E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </div>
   </div>
   <div class="card p-5">
     <h2 class="mb-3 fw-semibold">Welcome back</h2>
     <p class="text-muted mb-3">Login to your account</p>
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="sendData()">
       <label for="" class="mb-2 mt-3 fs-6">Your email address</label>
-      <input type="email" placeholder="Email@gmail.com" />
+      <input type="email" formControlName="email" placeholder="Email@gmail.com" />
+      <app-form-alert [formName]="loginForm" [inputName]="'email'"></app-form-alert>
 
       <label for="" class="mb-2 mt-4 fs-6">Password </label>
-      <input type="password" placeholder="*********" />
-
+      <input type="password" formControlName="password" placeholder="*********" />
+      <app-form-alert [formName]="loginForm" [inputName]="'password'"></app-form-alert>
+      <p class="text-danger my-3">{{loginErrorMsg}}</p>
       <div class="register-btn mt-5">
         <app-btn [label]="'Login'" [largeBtn]="true"></app-btn>
       </div>

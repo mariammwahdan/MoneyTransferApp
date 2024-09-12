@@ -1,37 +1,23 @@
 <div class="payment-details w-75">
   <h2>Payment History</h2>
 
-  <div class="paycard my-4">
+  @for (item of transHistoryArr; track $index) {
+    <div class="paycard my-4">
     <div class="bg-pink card-title d-flex flex-row justify-content-between p-2">
-      <div>Account Number: 6785 4987 6543</div>
+      <div>Account Number: {{item.toAccount}}</div>
       <div><i class="fa-solid fa-copy text-main-light"></i></div>
     </div>
     <div class="d-flex flex-row justify-content-between p-2">
       <div>
         <div class="p-2">Account Details</div>
-        <div class="card-cont p-2">Recipient name</div>
+        <!-- <div class="card-cont p-2">Recipient name</div> -->
       </div>
       <div>
-        <div class="p-2">Total Price : 1000EGP</div>
-        <div class="card-cont p-2">Jonathon Smith</div>
+        <div class="p-2">Total Price : {{item.amount}}EGP</div>
+        <!-- <div class="card-cont p-2">Jonathon Smith</div> -->
       </div>
     </div>
   </div>
-
-  <div class="paycard my-5">
-    <div class="bg-pink card-title d-flex flex-row justify-content-between p-2">
-      <div>Account Number: 6785 4987 6543</div>
-      <div><i class="fa-solid fa-copy text-main-light"></i></div>
-    </div>
-    <div class="d-flex flex-row justify-content-between p-2">
-      <div>
-        <div class="p-2">Account Details</div>
-        <div class="card-cont p-2">Recipient name</div>
-      </div>
-      <div>
-        <div class="p-2">Total Price : 1000EGP</div>
-        <div class="card-cont p-2">Jonathon Smith</div>
-      </div>
-    </div>
-  </div>
+  }
+  
 </div>
