@@ -73,6 +73,10 @@
       <div>{{amount}} EGP</div>
     </div>
     <div class="buttons w-100 d-flex flex-column gap-4">
+      @if (warningMsg) {
+              <p class="text-danger my-2">This Account is already added to Favourite </p>
+
+      }
       <app-btn [largeBtn]="true" [label]="'Back to Home'" routerLink="/home"></app-btn>
 
       <app-btn [largeBtn]="true" [outline]="true" [label]="'Add To Favourite'" (click)="addToFav()"></app-btn>
