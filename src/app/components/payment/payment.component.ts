@@ -27,7 +27,6 @@ export class PaymentComponent {
       next: (res) => {
         this.transHistoryObj = res;
         this.transHistoryArr = this.transHistoryObj.transactions;
-        console.log(this.transHistoryArr);
       },
       error: (err) => {
         console.log(err);
