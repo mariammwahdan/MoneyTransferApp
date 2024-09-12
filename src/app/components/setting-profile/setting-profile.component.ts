@@ -36,14 +36,17 @@ export class SettingProfileComponent {
     if (this.updateForm.valid) {
       console.log(this.updateForm.value);
       let updatedUserInfo = {
-        name: '' + this.updateForm.get('name')?.value,
-        email: '' + this.updateForm.get('email')?.value,
-        phoneNumber: '' + this.updateForm.get('phoneNumber')?.value,
+        name: this.updateForm.get('name')?.value || '',
+        email: this.updateForm.get('email')?.value || '',
+        phoneNumber: this.updateForm.get('phoneNumber')?.value || '',
       };
 
       this._UpdateCustomerService.updateData(updatedUserInfo).subscribe({
         next: (res) => {
           console.log(res);
+          localStorage.setItem('email', res.email);
+          localStorage.setItem('name', res.name);
+          localStorage.setItem('phone', res.phoneNumber);
         },
         error: (err) => {
           console.log(err);
